@@ -7,7 +7,7 @@
 	location.href="mainPage.do";
 </script>
 </head>
-<body>
+<body>fd
 sdfsdf
 </body>
 </html>
