@@ -98,9 +98,10 @@
             </div>
           <div class="border-bottom border-700"></div>
         </div>
+        </div>
         <!-- end of .container-->
 
-      </>
+     
       <!-- <section> close ============================-->
       <!-- ============================================-->
 
