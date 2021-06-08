@@ -40,13 +40,13 @@
     <!-- ===============================================-->
     <main class="main" id="top">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
-        <div class="container"><a class="navbar-brand d-inline-flex" href="index.html"><span class="text-light fs-2 fw-bold ms-2"><img src="/img/gallery/logo.png" style="width:100px; height:100px;"></span></a>
+        <div class="container"><a class="navbar-brand d-inline-flex" href="index.jsp"><span class="text-light fs-2 fw-bold ms-2"><img src="/img/gallery/logo.png" style="width:100px; height:100px;"></span></a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#collections">메인 페이지</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="index.jsp">메인 페이지</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">EXPLORER</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerMain.jsp">EXPLORER</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">TIKI-TAKA</a></li>
             </ul>
           </div>
