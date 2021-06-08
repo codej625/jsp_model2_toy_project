@@ -55,7 +55,7 @@
       <section class="py-0" id="header">
         <div class="bg-holder" style="background-image:url(img/gallery/header-bg.jpg);background-position:center; background-size:contain;">
         </div>
-        <!--/.bg-holder-->
+        <!--/bg-holder-->
 
         <div class="container">
           <div class="row align-items-center min-vh-75 min-vh-xl-100">
