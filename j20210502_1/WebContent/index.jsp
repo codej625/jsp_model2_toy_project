@@ -45,7 +45,7 @@
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#collections">메인 페이지</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#store">JUMP IN</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">EXPLORER</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">TIKI-TAKA</a></li>
             </ul>

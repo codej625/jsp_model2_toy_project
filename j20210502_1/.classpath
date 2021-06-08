@@ -17,15 +17,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.servlet.jsp.jstl-api-1.2.1.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/ojdbc6.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/cos.jar"/>
-	<classpathentry kind="lib" path="C:/develop/Tomcat 9.0/lib/jsp-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
-	<classpathentry kind="lib" path="C:/develop/Tomcat 9.0/lib/servlet-api.jar">
-		<attributes>
-			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
