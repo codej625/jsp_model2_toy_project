@@ -46,7 +46,7 @@ public class UserListAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "user/userList.jsp";
+		return "userList.jsp";
 	}
 
 }

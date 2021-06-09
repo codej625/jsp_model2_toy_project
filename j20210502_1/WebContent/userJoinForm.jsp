@@ -23,15 +23,33 @@
         	}
       	}).open();
    	}
-	function chk(){
+   	function pwChk(){
 		if(frm.user_pw.value != frm.user_pw2.value) {
-			alert("암호가 일치하지 않습니다.");
+// 			alert("암호가 일치하지 않습니다.");
+			data = "암호가 일치하지 않습니다."
+			$('#pwCheck').val(data);
 			frm.user_pw2.focus();
 			return false;
 		}
+		if(frm.user_pw.value == frm.user_pw2.value){
+// 			alert("정상적입니다.");
+			data = "암호가 일치합니다."
+			$('#pwCheck').val(data);
+			frm.user_name.focus();
+		}
 	}
 	function idChk() {
-		location.href='userIdCheckPro.do?user_id='+frm.user_id.value;
+		var p_user_id = frm.user_id.value;
+		$.ajax({
+			url:"<%=context%>/ajaxIdCheck.do",
+			data:{user_id : p_user_id},
+			dataType:'text',
+			success:function(data){
+				$('#idCheckName').val(data);
+			}
+		});
+		
+// 		location.href='userIdCheckPro.do?user_id='+frm.user_id.value;
 	};
 	function emailChk() {
 		if(!frm.user_id.value) {
@@ -53,6 +71,7 @@
 				<td>
 					<input type="text" name="user_id" id="user_id" required="required">
 					<input type="button" value="중복체크" onclick="idChk()">
+					<input type="text"   id="idCheckName"   readonly="readonly" style="width:100%; border: none; color: red;">
 				</td>
 			</tr>
 			<tr>
@@ -61,7 +80,10 @@
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td>
-				<td><input type="password" name="user_pw2" required="required"></td>
+				<td><input type="password" name="user_pw2" required="required">
+				<input type="button" value="비밀번호 확인" onclick="pwChk()">
+				<input type="text"   id="pwCheck"   readonly="readonly" style="width:100%; border: none; color: red;">
+				</td>
 			</tr>
 			<tr>
 				<td>이름</td>

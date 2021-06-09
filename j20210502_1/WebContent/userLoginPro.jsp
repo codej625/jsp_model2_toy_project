@@ -11,7 +11,7 @@
 	<%-- 로그인 결과 --%>
 	<c:if test="${result >0 }">
 		<script type="text/javascript">
-			alert("로그인 완료");
+// 			alert("로그인 완료");
 			location.href = "userInfo.jsp";
 		</script>
 	</c:if>

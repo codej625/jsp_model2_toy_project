@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>아이디찾기</h2>
+	<h2>비밀번호찾기</h2>
 	<form action="findUserPwPro.do" method="post" name="frm">
 		<table border="1">
 			<tr>

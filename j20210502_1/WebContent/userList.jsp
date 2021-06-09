@@ -16,6 +16,7 @@ table {
 <body>
 	<%-- 회원정보 리스트--%>
 	<h2>회원정보 리스트</h2>
+	<input type="button" value="메인페이지" onclick="location.href='userInfo.jsp'">
 	<table border="1">
 		<tr>
 			<th>사용자ID</th>

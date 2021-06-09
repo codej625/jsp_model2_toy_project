@@ -6,10 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
+<body onload="bodyOnload()">
 	<%-- 로그인 폼 --%>
 	<h2>로그인</h2>
-	<form action="userLoginPro.do" method="post">
+	<form id="form" action="userLoginPro.do" method="post" name="frm">
 		<table border="1">
 			<tr>
 				<td>아이디</td>
@@ -21,7 +21,7 @@
 				<td><input type="password" name="user_pw" required="required"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="확인"></td>
+				<td><input type="submit" value="확인" onclick="chk()"></td>
 				<td><input type="reset" value="취소"></td>
 			</tr>
 		</table>

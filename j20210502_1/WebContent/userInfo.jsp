@@ -28,6 +28,7 @@
 		<div>
 			<input type="text" name="user_code_chk" value="${sessionCODE}">
 		</div>
+		
 	</div>
 	<c:if test="${sessionCODE != 2}">
 		<button type="button" onclick="location.href='userList.do?user_id=${sessionID}'">모든회원정보</button>	
