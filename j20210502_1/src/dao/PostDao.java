@@ -96,6 +96,31 @@ public class PostDao {
 		return result;
 	}
 	
+	// 내가쓴 게시글 개수 카운트
+	public int getTotalCnt1(String user_id) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		ResultSet rs = null;    
+		int post_num = 0;
+		String sql = "select count(post_num) from post where user_id = ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				post_num = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage()); 
+		}finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return post_num;
+	}
+	
 	// 게시글 개수 카운트
 	public int getTotalCnt(int boardNum) throws SQLException {
 		Connection conn = null;	
@@ -144,6 +169,47 @@ public class PostDao {
 			if (conn !=null) conn.close();
 		}
 		return post_num;
+	}
+	
+	// 내가쓴 글 목록
+	public List<Post> list1(int startRow, int endRow, String user_id) throws SQLException{
+		List<Post> list1 = new ArrayList<Post>();
+		Connection conn = null;	
+		PreparedStatement pstmt= null;
+		ResultSet rs = null;
+		String sql = "select * from (select rownum rn , a.* from"
+		 		+ "(select * from post where user_id=? order by post_num desc, post_re , post_restep) a )"
+		 		+ "where rn between ? and ?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_id);
+			pstmt.setInt(2, startRow);
+			pstmt.setInt(3, endRow);
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Post post = new Post();
+				post.setBoard_num(rs.getInt("board_num"));
+				post.setPost_num(rs.getInt("post_num"));
+				post.setUser_id(rs.getString("user_id"));
+				post.setPost_date(rs.getString("post_date"));
+				post.setPost_name(rs.getString("post_name"));
+				post.setPost_cont(rs.getString("post_cont"));
+				post.setPost_view(rs.getInt("post_view"));
+				post.setPost_re(rs.getInt("post_re"));
+				post.setPost_restep(rs.getInt("post_restep"));
+				post.setPost_lv(rs.getInt("post_lv"));
+				post.setPost_chq(rs.getInt("post_chq"));
+				list1.add(post);
+			}	
+		} catch (Exception e) {
+			System.out.println(e.getMessage()); 
+		}finally {
+			if (rs !=null) rs.close();
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		} 
+		return list1;
 	}
 	
 	// 게시글 목록

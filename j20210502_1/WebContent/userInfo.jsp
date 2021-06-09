@@ -28,6 +28,12 @@
 		<div>
 			<input type="text" name="user_code_chk" value="${sessionCODE}">
 		</div>
+		<div>
+			<input type="button" value="내가 찜한 캠핑장" onclick="location.href='userLike.do?user_id=${sessionID}'">
+		</div>
+		<div>
+			<input type="button" value="내가 쓴글" onclick="location.href='userWriteList.do?user_id=${sessionID}'">
+		</div>
 		
 	</div>
 	<c:if test="${sessionCODE != 2}">
