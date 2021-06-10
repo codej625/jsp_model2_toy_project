@@ -43,7 +43,9 @@
 		</div>
 		<div class="box4">
 			<div class="res">
-				<a class="color" href="">예약하기</a>
+				<a id="button"
+					onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
+					href="${Camp_InfoDto.res_Id}">예약하기</a>
 			</div>
 		</div>
 		<div class="box5">
