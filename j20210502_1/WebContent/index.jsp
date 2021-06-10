@@ -49,13 +49,10 @@
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#collections">메인 페이지</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="index.jsp">메인 페이지</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">EXPLORER</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerMain.jsp">EXPLORER</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">TIKI-TAKA</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">로그인</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">회원가입</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">마이페이지</a></li>
             </ul>
           </div>
         </div>
@@ -63,7 +60,7 @@
       <section class="py-0" id="header">
         <div class="bg-holder" style="background-image:url(img/gallery/header-bg.jpg);background-position:center; background-size:contain;">
         </div>
-        <!--/bg-holder-->
+        <!--/.bg-holder-->
 
         <div class="container">
           <div class="row align-items-center min-vh-75 min-vh-xl-100">
@@ -106,10 +103,9 @@
             </div>
           <div class="border-bottom border-700"></div>
         </div>
-        </div>
         <!-- end of .container-->
 
-     
+      </>
       <!-- <section> close ============================-->
       <!-- ============================================-->
 

@@ -107,13 +107,13 @@ public class Controller extends HttpServlet {
 			throw new ServletException(e);
 		}
 //		Ajax String를 포함하고 있으면
-		if (command.contains("ajaxTest1")) {
-			//System.out.println("ajaxTest1 String->" + command); // /ch16/list.do
+		if (command.contains("ajaxIdCheck")) {
+			//System.out.println("ajaxIdCheck String->" + command); 
 //			text 있다면
-			String writer = (String) request.getAttribute("writer");
+			String idCheck = (String) request.getAttribute("idCheck");
 			//System.out.println("Controller writer->" + writer);
 			PrintWriter pw = response.getWriter();
-			pw.write(writer);
+			pw.write(idCheck);
 			// flush-> 버퍼있는걸 다올려라
 			pw.flush();
 

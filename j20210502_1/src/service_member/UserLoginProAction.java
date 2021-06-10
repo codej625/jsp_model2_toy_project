@@ -27,7 +27,7 @@ public class UserLoginProAction implements CommandProcess {
 			if(result>0) {
 				request.getSession().setAttribute("sessionID", user_id);
 				request.getSession().setAttribute("sessionCODE", user_code);
-				System.out.println("Login user_code->" + user_code);
+//				System.out.println("Login user_code->" + user_code);
 			}
 			
 		} catch (Exception e) {
