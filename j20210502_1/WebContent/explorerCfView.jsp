@@ -33,8 +33,8 @@
 				<form action="explorerCf.do" method="post">
 					<select name="c_F" id="c_F" onchange="formChange(this.form)">
 						<option>유/무료</option>
-						<option value='0'>무료</option>
-						<option value='1'>유료</option>
+						<option value='0'>유료</option>
+						<option value='1'>무료</option>
 					</select>
 				</form>
 			</div>
@@ -49,8 +49,7 @@
 							alt="error" src="images/${Camp_InfoDto.camp_Images}.jpg"></a>
 					</div>
 					<h2 id="camp_Name">
-						&nbsp;&nbsp;[<a
-							href='campView.do?camp_Id=${Camp_InfoDto.camp_Id}'>${Camp_InfoDto.camp_Name}</a>]
+						&nbsp;&nbsp;[<a href='campView.do?camp_Id=${Camp_InfoDto.camp_Id}'>${Camp_InfoDto.camp_Name}</a>]
 					</h2>
 					<hr>
 					<div id="camp_Addr">
@@ -58,7 +57,9 @@
 						<p>캠핑장 전화 : ${Camp_InfoDto.camp_Tel}</p>
 						<p>캠핑장 설명 : ${Camp_InfoDto.camp_Desc}</p>
 					</div>
-					<a id="button" onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')" href="${Camp_InfoDto.res_Id}">예약하기</a>
+					<a id="button"
+						onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
+						href="${Camp_InfoDto.res_Id}">예약하기</a>
 				</div>
 				<c:set var="startNum" value="${startNum - 1}" />
 			</c:forEach>

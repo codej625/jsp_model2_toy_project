@@ -34,8 +34,8 @@
 				<form action="explorerCf.do" method="post">
 					<select name="c_F" id="c_F" onchange="formChange(this.form)">
 						<option>유/무료</option>
-						<option value='0'>무료</option>
-						<option value='1'>유료</option>
+						<option value='0'>유료</option>
+						<option value='1'>무료</option>
 					</select>
 				</form>
 			</div>
