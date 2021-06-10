@@ -51,7 +51,7 @@ table {
 					<td>${write.post_cont}</td>
 					<td>${write.post_view}</td>
 				</tr>
-				<c:set var="startNum" value="${startNum - 1 }" />
+				<c:set var="startNum" value="${startNum + 1 }" />
 			</c:forEach>
 		</c:if>
 		<c:if test="${totCnt == 0 }">
@@ -66,7 +66,7 @@ table {
 			<a href='list.do?pageNum=${startPage-blockSize}'>[이전]</a>
 		</c:if>
 		<c:forEach var="i" begin="${startPage}" end="${endPage}">
-			<a href='list.do?pageNum=${i}'>[${i}]</a>
+			<a href='userWriteList.do?pageNum=${i}&user_id=${user_id}'>[${i}]</a>
 		</c:forEach>
 		<c:if test="${endPage < pageCnt }">
 			<a href='list.do?pageNum=${startPage+blockSize}'>[다음]</a>
