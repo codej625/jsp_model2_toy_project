@@ -25,6 +25,7 @@ public class UserAskFormAction implements CommandProcess {
 			System.out.println("Let's AskFormAction");
 			
 			String user_id = request.getParameter("user_id");
+			int user_code = Integer.parseInt(request.getParameter("user_code"));
 			
 			int board_num = 3;
 			
@@ -46,7 +47,14 @@ public class UserAskFormAction implements CommandProcess {
 			System.out.println("endRow-->" + endRow);
 			System.out.println("startNum-->" + startNum);
 			
-			List<Post> list = pd.list(startRow, endRow, board_num);	
+			if(user_code == 2) {
+				List<Post> list = pd.askList(startRow, endRow, board_num, user_id);
+				request.setAttribute("list", list);
+			}
+			else {
+				List<Post> list = pd.list(startRow, endRow, board_num);
+				request.setAttribute("list", list);
+			}
 			int post_num = pd.getTotalCnt(board_num);
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize); //21/10
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
@@ -57,7 +65,6 @@ public class UserAskFormAction implements CommandProcess {
 			request.setAttribute("user_id", user_id);
 			request.setAttribute("board_num", board_num);
 			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("post_num", post_num);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
@@ -69,7 +76,6 @@ public class UserAskFormAction implements CommandProcess {
 			 
 			System.out.println("-----------------------------------------------");  // /ch16/list.do
 			System.out.println("Board Num -->" + board_num);
-			System.out.println("post_num-->" + post_num);
 			System.out.println("pageNum-->" + pageNum);
 			System.out.println("startNum-->" + startNum);  // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do

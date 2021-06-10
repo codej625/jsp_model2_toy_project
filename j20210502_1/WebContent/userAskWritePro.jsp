@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-    결과
 	<%-- 문의사항 입력 결과 --%>
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
@@ -19,7 +18,7 @@
 	<c:if test="${result == 0 }">
 		<script type="text/javascript">
 			alert("입력 실패");
-			// 			location.href = "";
+			history.back();
 		</script>
 	</c:if>
 </body>
