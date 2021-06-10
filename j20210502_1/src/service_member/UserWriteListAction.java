@@ -27,7 +27,8 @@ public class UserWriteListAction implements CommandProcess {
 			int pageSize  = 10, blockSize = 10;
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow   = startRow + pageSize - 1;
-			int startNum = totCnt - startRow + 1;
+			int startNum =  startRow;
+	//		int startNum = 1;
 			List<Post> list1 = pd.list1(startRow, endRow, user_id);	
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
@@ -38,6 +39,7 @@ public class UserWriteListAction implements CommandProcess {
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
+			request.setAttribute("user_id", user_id);
 			request.setAttribute("list1", list1);
 			request.setAttribute("blockSize", blockSize);
 			request.setAttribute("pageCnt", pageCnt);
@@ -45,15 +47,16 @@ public class UserWriteListAction implements CommandProcess {
 			request.setAttribute("endPage", endPage);
 			
 			
-			System.out.println("pageNum-->" + pageNum);
-			System.out.println("startNum-->" + startNum);  // /ch16/list.do
-			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do
-			System.out.println("currentPage-->" + currentPage);  // /ch16/list.do
-			System.out.println("blockSize-->" + blockSize);  // /ch16/list.do
-			System.out.println("pageSize-->" + pageSize);  // /ch16/list.do
-			System.out.println("pageCnt-->" + pageCnt);  // /ch16/list.do
-			System.out.println("startPage-->" + startPage);  // /ch16/list.do
-			System.out.println("endPage-->" + endPage);
+			System.out.println("UserWriteListAction pageNum-->" + pageNum);
+			System.out.println("UserWriteListAction startNum-->" + startNum);  // /ch16/list.do
+			System.out.println("UserWriteListAction totCnt-->" + totCnt);  // /ch16/list.do
+			System.out.println("UserWriteListAction currentPage-->" + currentPage);  // /ch16/list.do
+			System.out.println("UserWriteListAction user_id-->" + user_id);  // /ch16/list.do
+			System.out.println("UserWriteListAction blockSize-->" + blockSize);  // /ch16/list.do
+			System.out.println("UserWriteListAction pageSize-->" + pageSize);  // /ch16/list.do
+			System.out.println("UserWriteListAction pageCnt-->" + pageCnt);  // /ch16/list.do
+			System.out.println("UserWriteListAction startPage-->" + startPage);  // /ch16/list.do
+			System.out.println("UserWriteListAction endPage-->" + endPage);
 			
 		} catch (Exception e) {
 			System.out.println(e.getMessage()); 
