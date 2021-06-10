@@ -17,7 +17,6 @@
 		obj.submit(); //obj자체가 form이다.
 		//『폼객체.submit();』 함수의 호출을 통해
 		//form 객체의 데이터를 서버로 전송하는 것이 가능하다.
-
 	}
 </script>
 <link rel="stylesheet" href="css/style.css" type="text/css">
@@ -43,7 +42,7 @@
 		</div>
 
 		<c:if test="${totCnt > 0}">
-			<c:forEach var="Camp_InfoDto" items="${list}">
+			<c:forEach var="Camp_InfoDto" items="${listCf}">
 				<div id="article">
 					<div id="camp_Images">
 						<a href='campView.do?camp_Id=${Camp_InfoDto.camp_Id}'><img
@@ -58,10 +57,8 @@
 						<p>캠핑장 주소 : ${Camp_InfoDto.camp_Loc}</p>
 						<p>캠핑장 전화 : ${Camp_InfoDto.camp_Tel}</p>
 						<p>캠핑장 설명 : ${Camp_InfoDto.camp_Desc}</p>
-						<p>
-							<a id="button" onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')" href="${Camp_InfoDto.res_Id}">예약하기</a>
-						</p>
 					</div>
+					<a id="button" onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')" href="${Camp_InfoDto.res_Id}">예약하기</a>
 				</div>
 				<c:set var="startNum" value="${startNum - 1}" />
 			</c:forEach>
@@ -75,13 +72,13 @@
 		<footer>
 			<div style="text-align: center;">
 				<c:if test="${startPage > blockSize}">
-					<a href='explorer.do?pageNum=${startPage-blockSize}'>[이전]</a>
+					<a href='explorerCf.do?pageNum=${startPage-blockSize}&c_F=${c_F}'>[이전]</a>
 				</c:if>
 				<c:forEach var="i" begin="${startPage}" end="${endPage}">
-					<a href='explorer.do?pageNum=${i}'>[${i}]</a>
+					<a href='explorerCf.do?pageNum=${i}&c_F=${c_F}'>[${i}]</a>
 				</c:forEach>
 				<c:if test="${endPage < pageCnt}">
-					<a href='explorer.do?pageNum=${startPage+blockSize}'>[다음]</a>
+					<a href='explorerCf.do?pageNum=${startPage+blockSize}&c_F=${c_F}'>[다음]</a>
 				</c:if>
 			</div>
 			<p>&nbsp;&nbsp;Model–View–Controller Pattern</p>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>CAMPVIEW</title>
+<title>VIEW</title>
 <link rel="stylesheet" href="css/style2.css" type="text/css">
 
 </head>
@@ -19,8 +19,7 @@
 			</div>
 		</div>
 		<div class="box2">
-			<img alt="error"
-				src="https://www.gocamping.or.kr/upload/camp/1900/thumb/thumb_720_9097zScU1JGVw9ogs5WhU7nk.jpg">
+			<img alt="error" src="images/${Camp_InfoDto.camp_Images}.jpg">
 		</div>
 		<div class="box3">
 			<table>
@@ -30,33 +29,33 @@
 				</tr>
 				<tr>
 					<th>문의처</th>
-					<td></td>
+					<td>${Camp_InfoDto.camp_Tel}</td>
 				</tr>
 				<tr>
 					<th>지역</th>
-					<td></td>
+					<td>${Camp_InfoDto.camp_Loc}</td>
 				</tr>
 				<tr>
 					<th id="th2">???</th>
 					<td id="td2"></td>
 				</tr>
 			</table>
-			<div class="button1">
-				<ul>
-					<li><a class="color" href=".do">예약하기</a></li>
-				</ul>
-			</div>
 		</div>
 		<div class="box4">
+			<div class="res">
+				<a class="color" href="">예약하기</a>
+			</div>
+		</div>
+		<div class="box5">
 			<div class="button2">
 				<ul>
-					<li><a id="1" class="color" href="campView.jsp#1">캠핑장소개</a></li>
+					<li><a id="1" class="color" href="">캠핑장소개</a></li>
 					<li><a class="color" href=".do">여행후기</a></li>
 					<li><a class="color" href=".do">공지사항</a></li>
 				</ul>
 			</div>
 		</div>
-		<div class="box5">
+		<div class="box6">
 			<div>
 				<div>
 					<h1>캠핑장 전경</h1>
