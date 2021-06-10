@@ -119,6 +119,27 @@ public class PostDao {
 		return result;
 	}
 	
+	// 조회수 증가
+	public void readCount(int board_num, int post_num) throws SQLException {
+		Connection conn = null;	
+		PreparedStatement pstmt= null; 
+		
+		String sql="update post set post_view=post_view+1 where board_num=? and post_num=?";
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, board_num);
+		pstmt.setInt(2, post_num);
+			pstmt.executeUpdate();
+		} catch(Exception e) {	System.out.println(e.getMessage()); 
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn !=null) conn.close();
+		}
+		return;
+	}
+	
 	// 내가쓴 게시글 개수 카운트
 	public int getTotalCnt1(String user_id) throws SQLException {
 		Connection conn = null;	
@@ -234,7 +255,7 @@ public class PostDao {
 		} 
 		return list1;
 	}
-	
+
 	// 게시글 목록
 	public List<Post> list(int startRow, int endRow, int board_num) throws SQLException {
 		List<Post> list = new ArrayList<Post>();
@@ -242,7 +263,7 @@ public class PostDao {
 		PreparedStatement pstmt= null;
 		ResultSet rs = null;
 		 String sql = "select * from (select rownum rn , a.* from"
-		 		+ "(select * from post where board_num=? order by post_num desc, post_re , post_restep) a )"
+		 		+ "(select * from post where board_num=? order by post_re desc, post_restep) a )"
 		 		+ "where rn between ? and ?";
 		try {
 			conn = getConnection();

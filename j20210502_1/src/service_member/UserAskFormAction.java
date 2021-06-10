@@ -55,7 +55,6 @@ public class UserAskFormAction implements CommandProcess {
 				List<Post> list = pd.list(startRow, endRow, board_num);
 				request.setAttribute("list", list);
 			}
-			int post_num = pd.getTotalCnt(board_num);
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize); //21/10
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 			int endPage = startPage + blockSize -1;	
