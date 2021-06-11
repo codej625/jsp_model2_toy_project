@@ -47,7 +47,7 @@
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN(마이페이지)</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerMain.jsp">EXPLORER(캠핑장)</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do">TIKI-TAKA(게시판)</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.jsp">로그인</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="userAgree.do">회원가입</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">로그아웃</a></li>
 
