@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
@@ -47,7 +46,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#collections">메인 페이지</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">EXPLORER</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPageExplorer.jsp">EXPLORER</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">TIKI-TAKA</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">로그인</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">회원가입</a></li>
