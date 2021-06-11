@@ -67,7 +67,7 @@ public class UserAskFormAction implements CommandProcess {
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
-			request.setAttribute("list", list);
+//			request.setAttribute("list", list);
 			request.setAttribute("blockSize", blockSize);
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);

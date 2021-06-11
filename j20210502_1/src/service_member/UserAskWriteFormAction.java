@@ -32,6 +32,7 @@ request.setCharacterEncoding("utf-8");
     			System.out.println("WriteFormAction post_re-->" + post_re);
     			post_restep = post.getPost_restep();
     			post_lv = post.getPost_lv();
+    		}
     		request.setAttribute("user_id", user_id);
     		System.out.println("WriteFormAction user_id-->" + user_id);
     		request.setAttribute("board_num", board_num);

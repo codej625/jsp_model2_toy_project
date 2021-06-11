@@ -8,8 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.Post;
 import dao.PostDao;
-import dao.Upload;
-import dao.UploadDao;
 
 public class UserAskContentAction implements CommandProcess {
 
