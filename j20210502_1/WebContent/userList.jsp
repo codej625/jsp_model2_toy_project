@@ -16,7 +16,7 @@ table {
 <body>
 	<%-- 회원정보 리스트--%>
 	<h2>회원정보 리스트</h2>
-	<input type="button" value="메인페이지" onclick="location.href='userInfo.jsp'">
+	<input type="button" value="메인페이지" onclick="location.href='userInfo.do'">
 	<table border="1">
 		<tr>
 			<th>사용자ID</th>
@@ -28,7 +28,7 @@ table {
 			<th>이메일</th>
 			<th>성별</th>
 			<th>가입일</th>
-			<th>비밀번호 변경일</th>
+			<th>회원정보 수정일</th>
 			<th>탈퇴여부</th>
 		</tr>
 		<c:if test="${totCnt > 0 }">
@@ -44,7 +44,8 @@ table {
 					<td>${member.user_gender }</td>
 					<td>${member.user_reg }</td>
 					<td>${member.user_pwd }</td>
-					<td>${member.user_drop }</td>
+					<td>${member.user_drop }
+					<input type="button" value="변경" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'"></td>
 				</tr>
 				<c:set var="startNum" value="${startNum -1 }" />
 			</c:forEach>

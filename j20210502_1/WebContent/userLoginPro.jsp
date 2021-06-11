@@ -12,7 +12,7 @@
 	<c:if test="${result >0 }">
 		<script type="text/javascript">
 // 			alert("로그인 완료");
-			location.href = "userInfo.jsp";
+			location.href = "index.jsp";
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">

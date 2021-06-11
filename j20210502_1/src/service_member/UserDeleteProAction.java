@@ -25,6 +25,9 @@ public class UserDeleteProAction implements CommandProcess {
 			MemberDao md = MemberDao.getInstance();
 			int result = md.delete(user_id,user_pw);
 			
+			session.setAttribute("sessionID", null);
+			session.invalidate();
+			
 			request.setAttribute("result",result);
 			
 		} catch (Exception e) {

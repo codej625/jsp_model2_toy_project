@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en-US" dir="ltr">
 
@@ -14,6 +15,8 @@
 
 
     <!-- ===============================================-->
+    
+    
     <!--    Favicons-->
     <!-- ===============================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
@@ -44,12 +47,32 @@
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+<<<<<<< HEAD
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN(마이페이지)</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerMain.jsp">EXPLORER(캠핑장)</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do">TIKI-TAKA(게시판)</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.jsp">로그인</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="userAgree.jsp">회원가입</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">로그아웃</a></li>
+=======
+<<<<<<< HEAD
+              <c:if test="${sessionID == null }">
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">JUMP IN(마이페이지)</a></li>
+              </c:if>
+              <c:if test="${sessionID != null }">
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
+              </c:if>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
+              <c:if test="${sessionID == null }">
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userAgree.do">회원가입</a></li>
+              </c:if>
+              <c:if test="${sessionID != null }">
+              <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLogoutPro.do">로그아웃</a></li>
+              </c:if>
+              
+>>>>>>> 01_team
 
             </ul>
           </div>
