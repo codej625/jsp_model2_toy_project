@@ -11,14 +11,17 @@ import dao.Camp_InfoDao;
 import dto.Camp_InfoDto;
 import service_member.CommandProcess;
 
-public class ExplorerAction implements CommandProcess {
+public class ExplorerCfAction implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		Camp_InfoDao bd = Camp_InfoDao.getInstance();
 		try {
-			int totCnt = bd.getTotalCnt();
+			Camp_InfoDao bd = Camp_InfoDao.getInstance();
+			int c_F = Integer.parseInt(request.getParameter("c_F"));
+			System.out.println("c_F-->" + c_F);
+
+			int totCnt = bd.getTotalCntCf(c_F);
 			String pageNum = request.getParameter("pageNum");
 			if (pageNum == null || pageNum.equals("")) {
 				pageNum = "1";
@@ -28,7 +31,7 @@ public class ExplorerAction implements CommandProcess {
 			int startRow = (currentPage - 1) * pageSize + 1;
 			int endRow = startRow + pageSize - 1;
 			int startNum = totCnt - startRow + 1;
-			List<Camp_InfoDto> list = bd.list(startRow, endRow);
+			List<Camp_InfoDto> listCf = bd.listCf(startRow, endRow, c_F);
 			int pageCnt = (int) Math.ceil((double) totCnt / pageSize);
 			int startPage = (int) (currentPage - 1) / blockSize * blockSize + 1;
 			int endPage = startPage + blockSize - 1;
@@ -36,7 +39,8 @@ public class ExplorerAction implements CommandProcess {
 				endPage = pageCnt;
 			}
 
-			request.setAttribute("list", list);
+			request.setAttribute("c_F", c_F);
+			request.setAttribute("listCf", listCf);
 			request.setAttribute("totCnt", totCnt);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
@@ -49,7 +53,7 @@ public class ExplorerAction implements CommandProcess {
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		return "explorerMain.jsp";
+		return "explorerCfView.jsp";
 	}
 
 }
