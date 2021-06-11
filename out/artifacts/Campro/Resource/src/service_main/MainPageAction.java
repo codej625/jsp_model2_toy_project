@@ -1,12 +1,11 @@
 package service_main;
 
-import java.io.IOException;
+import service_member.CommandProcess;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import service_member.CommandProcess;
+import java.io.IOException;
 
 public class MainPageAction implements CommandProcess {
 

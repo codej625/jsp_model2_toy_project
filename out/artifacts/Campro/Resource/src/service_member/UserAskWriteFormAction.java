@@ -1,14 +1,12 @@
 package service_member;
 
-import java.io.IOException;
+import dao.Post;
+import dao.PostDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.MemberDao;
-import dao.Post;
-import dao.PostDao;
+import java.io.IOException;
 
 public class UserAskWriteFormAction implements CommandProcess {
 

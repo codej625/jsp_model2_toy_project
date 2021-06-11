@@ -1,13 +1,12 @@
 package service_member;
 
-import java.io.IOException;
+import dao.Post;
+import dao.PostDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.Post;
-import dao.PostDao;
+import java.io.IOException;
 
 public class UserAskContentAction implements CommandProcess {
 

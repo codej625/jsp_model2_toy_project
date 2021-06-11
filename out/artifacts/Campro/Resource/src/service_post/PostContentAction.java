@@ -1,14 +1,13 @@
 package service_post;
 
-import java.io.IOException;
+import dao.Post;
+import dao.PostDao;
+import service_member.CommandProcess;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import dao.Post;
-import dao.PostDao;
-import service_member.CommandProcess;
+import java.io.IOException;
 
 public class PostContentAction implements CommandProcess {
 

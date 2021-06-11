@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="Campro">
+    <output-path>$PROJECT_DIR$/out/artifacts/Campro</output-path>
+    <root id="root">
+      <element id="directory" name="Resource">
+        <element id="dir-copy" path="$PROJECT_DIR$/j20210502_1" />
+      </element>
+    </root>
+  </artifact>
+</component>

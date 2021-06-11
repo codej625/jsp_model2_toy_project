@@ -1,14 +1,12 @@
 package service_member;
 
-import java.io.IOException;
+import dao.MemberDao;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dao.Member;
-import dao.MemberDao;
+import java.io.IOException;
 
 public class UserDeleteProAction implements CommandProcess {
 
