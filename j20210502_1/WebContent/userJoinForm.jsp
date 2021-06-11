@@ -71,7 +71,7 @@
 				<td>
 					<input type="text" name="user_id" id="user_id" required="required">
 					<input type="button" value="중복체크" onclick="idChk()">
-					<input type="text"   id="idCheckName"   readonly="readonly" style="width:100%; border: none; color: red;">
+					<input type="text"   id="idCheckName"  readonly="readonly" style="width:100%; border: none; color: red;">
 				</td>
 			</tr>
 			<tr>
