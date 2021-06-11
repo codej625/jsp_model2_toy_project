@@ -17,7 +17,7 @@
 			<input type="button" value="회원정보 수정" onclick="location.href='userUpdateForm.do?user_id=${sessionID}'">
 		</div>
 		<div>
-			<input type="button" value="문의사항" onclick="location.href='userAskForm.do?user_id=${sessionID}&board_num=3'">
+			<input type="button" value="문의사항" onclick="location.href='userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3'">
 		</div>
 		<div>
 			<input type="button" value="로그아웃" onclick="location.href='userLogoutPro.do?user_id=${sessionID}'">
