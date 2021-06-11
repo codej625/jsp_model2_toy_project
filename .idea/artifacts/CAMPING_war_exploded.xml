@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="CAMPING:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/CAMPING_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="CAMPING/web/Web" />
+    </root>
+  </artifact>
+</component>
