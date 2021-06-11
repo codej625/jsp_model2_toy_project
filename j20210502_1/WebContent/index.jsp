@@ -50,15 +50,7 @@
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="userAgree.do">회원가입</a></li>
               <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">로그아웃</a></li>
-=======
-              <li class="nav-item px-2"><a class="nav-link fw-bold active" aria-current="page" href="#collections">메인 페이지</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">JUMP IN</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPageExplorer.jsp">EXPLORER</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">TIKI-TAKA</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="mainPage.jsp">로그인</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#contact">회원가입</a></li>
-              <li class="nav-item px-2"><a class="nav-link fw-bold" href="#header">마이페이지</a></li>
->>>>>>> 03_team
+
             </ul>
           </div>
         </div>
