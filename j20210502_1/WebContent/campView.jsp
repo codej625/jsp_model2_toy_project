@@ -11,12 +11,10 @@
 
 </head>
 <body>
-	<div class="wrapper">
+	<div id="wrapper">
 		<div class="box1">
-			<div id="header">
-				<img alt="error"
-					src="https://www.gocamping.or.kr/upload/camp/1900/thumb/thumb_720_9097zScU1JGVw9ogs5WhU7nk.jpg">
-			</div>
+			<img alt="error"
+				src="https://www.gocamping.or.kr/upload/camp/1900/thumb/thumb_720_9097zScU1JGVw9ogs5WhU7nk.jpg">
 		</div>
 		<div class="box2">
 			<img alt="error" src="images/${Camp_InfoDto.camp_Images}.jpg">
@@ -24,8 +22,8 @@
 		<div class="box3">
 			<table>
 				<tr>
-					<th id="th">주소</th>
-					<td id="td">${Camp_InfoDto.camp_Addr}</td>
+					<th id="thTop">주소</th>
+					<td id="tdTop">${Camp_InfoDto.camp_Addr}</td>
 				</tr>
 				<tr>
 					<th>문의처</th>
@@ -36,32 +34,35 @@
 					<td>${Camp_InfoDto.camp_Loc}</td>
 				</tr>
 				<tr>
-					<th id="th2">운영일</th>
-					<td id="td2">평일 + 주말</td>
+					<th id="thBottom">운영일</th>
+					<td id="tdBottom">평일 + 주말</td>
 				</tr>
 			</table>
 		</div>
 		<div class="box4">
-			<div class="res">
-				<a class="color" href="">예약하기</a>
+			<div id="resButtonBox">
+				<a id="resButton"
+					onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
+					href="${Camp_InfoDto.res_Id}">예약하기</a>
 			</div>
 		</div>
 		<div class="box5">
-			<div class="one"></div>
+			<div></div>
 		</div>
 		<div class="box6">
-			<div>
-				<div>
-					<hr>
-					<h1>캠핑장 전경</h1>
-					<div>1</div>
-				</div>
-				<div>1</div>
-				<div>2</div>
-				<div>3</div>
-			</div>
+			<hr>
+			<h3>캠핑장 전경</h3>
+			<img class="images1" alt="error"
+				src="images/${camp_Images_View_1}.jpg"> <img class="images1"
+				alt="error" src="images/${camp_Images_View_2}.jpg"> <img
+				class="images1" alt="error" src="images/${camp_Images_View_2}.jpg">
 		</div>
 		<div class="box7">
+			<h3>캠핑장 편의시설</h3>
+			<img class="images2" alt="error" src="images/${camp_Images_Item}.jpg"></img>
+		</div>
+
+		<div class="box8">
 			<div id="map" style="width: 500px; height: 400px;"></div>
 			<script type="text/javascript"
 				src="//dapi.kakao.com/v2/maps/sdk.js?appkey=feeb7a09264f16b16711469db46a2446"></script>
