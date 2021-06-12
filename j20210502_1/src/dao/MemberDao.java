@@ -73,7 +73,7 @@ public class MemberDao {
 		ResultSet rs = null;
 		
 		int result = 0;
-		String sql = "select user_pw from user_info where user_id=?";
+		String sql = "select user_pw from user_info where user_id=? and user_drop=0";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -153,53 +153,60 @@ public class MemberDao {
 		return result;
 	}
 	
-	// 회원삭제
-	public int delete(String user_id, String user_pw) throws SQLException {
+	// 회원 탈퇴여부 변경
+	public int deleteUpdate(String user_id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
 		int result = 0;
-		String sql = "delete from user_info where user_id=?"; 
-		 
-		try { 
-			conn  = getConnection();
-			
-			result = check(user_id, user_pw);
-			if (result != 1) return result;
-			
+		String sql = "update user_info set user_drop=0 where user_id=?";
+		try {
+			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user_id);
+			pstmt.setString(1,user_id);
 			result = pstmt.executeUpdate();
-		} catch(Exception e) {
+			
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
-		} finally {
+		}finally {
 			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close();
 		}
 		return result;
 	}
 	
-	// 아이디 중복체크
-	public int IdDupl(String user_id) throws SQLException {
+	// 회원탈퇴
+	public int delete(String user_id, String user_pw) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
 		int result = 0;
-		String sql = "select * from user_info where user_id=?";
+		String sql = "select user_pw from user_info where user_id=?";
+		String sql1 = "update user_info set user_drop=1 where user_id=?";
+		 
 		try {
+			String dbPw = "";
 			conn  = getConnection();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			rs = pstmt.executeQuery();
-			if ( rs.next()) result = 1; // 아이디 중복: 1, 아이디 생성 가능: 0
-			else result = 0;
-		} catch (Exception e) {
+			if(rs.next()) {
+				dbPw = rs.getString(1);
+				if(dbPw.equals(user_pw)) {
+					rs.close();  
+					pstmt.close();
+					
+					pstmt = conn.prepareStatement(sql1);
+					pstmt.setString(1, user_id);
+					result = pstmt.executeUpdate();
+				}
+			}else {
+				result = -1;
+			}
+		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
 			if (pstmt != null) pstmt.close();
 			if (conn != null) conn.close();
-			if (rs != null) rs.close();
 		}
 		return result;
 	}
