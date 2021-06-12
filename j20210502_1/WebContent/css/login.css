@@ -115,3 +115,8 @@ h2 {
     font-size: 1.2em;
     letter-spacing: 2px;
 }
+
+.submit input:hover{
+	 background: white;
+    color: black;
+}

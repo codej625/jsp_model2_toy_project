@@ -75,7 +75,7 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("dd");
+		System.out.println("실행완료");
 		requestPro(request, response);
 	}
 
