@@ -141,8 +141,8 @@ box6 div {
 .images2 {
 	float: left;
 	border: 1px solid black;
-	width: 50%;
-	height: 100px;
+	width: 40%;
+	height: 130px;
 	margin: 2% 1.56% 5% 1.56%;
 }
 
@@ -151,4 +151,8 @@ box6 div {
 	grid-column-end: 31;
 	grid-row-start: 7;
 	grid-row-end: 8;
+}
+
+.notice {
+	margin-top: 5%; 
 }

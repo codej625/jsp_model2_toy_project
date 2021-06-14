@@ -82,7 +82,7 @@
 					<a href='explorerCf.do?pageNum=${startPage+blockSize}&c_F=${c_F}'>[다음]</a>
 				</c:if>
 			</div>
-			<p>&nbsp;&nbsp;Model–View–Controller Pattern</p>
+			<img class="notice" alt="error" src="images/notice.jpg">
 		</footer>
 	</div>
 </body>

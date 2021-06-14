@@ -13,14 +13,8 @@ table {
 </style>
 </head>
 <body>
-	<table>
-		<tr>
-			<td><a href="campWriteForm.do">글쓰기</a></td>
-		</tr>
-	</table>
 	<h3>총 ${totCnt}개 캠핑장이 검색되었습니다.</h3>
 	<table border="1px">
-		<caption>캠핑장 리스트</caption>
 		<tr>
 			<th>캠핑장번호</th>
 			<th>캠핑장이름</th>
@@ -37,22 +31,22 @@ table {
 			<th>편의시설</th>
 		</tr>
 		<c:if test="${totCnt > 0 }">
-			<c:forEach var="Camp_InfoDto" items="${list}">
+			<c:forEach var="camp_InfoDto" items="${list}">
 				<tr>
-					<td>${Camp_InfoDto.camp_Id}</td>
+					<td>${camp_InfoDto.camp_Id}</td>
 					<td><a
-						href='campContent.do?camp_Id=${Camp_InfoDto.camp_Id}&pageNum=${currentPage}'>${Camp_InfoDto.camp_Name}</a></td>
-					<td>${Camp_InfoDto.camp_Tel}</td>
-					<td>${Camp_InfoDto.camp_Addr}</td>
-					<td>${Camp_InfoDto.camp_Loc}</td>
-					<td>${Camp_InfoDto.c_F}</td>
-					<td>${Camp_InfoDto.res_Id}</td>
-					<td>${Camp_InfoDto.camp_Desc}</td>
-					<td>${Camp_InfoDto.camp_Images}</td>
-					<td>${Camp_InfoDto.camp_View1}</td>
-					<td>${Camp_InfoDto.camp_View2}</td>
-					<td>${Camp_InfoDto.camp_View3}</td>
-					<td>${Camp_InfoDto.camp_Item}</td>
+						href='campContent.do?camp_Id=${camp_InfoDto.camp_Id}&pageNum=${currentPage}'>${camp_InfoDto.camp_Name}</a></td>
+					<td>${camp_InfoDto.camp_Tel}</td>
+					<td>${camp_InfoDto.camp_Addr}</td>
+					<td>${camp_InfoDto.camp_Loc}</td>
+					<td>${camp_InfoDto.c_F}</td>
+					<td>${camp_InfoDto.res_Id}</td>
+					<td>${camp_InfoDto.camp_Desc}</td>
+					<td>${camp_InfoDto.camp_Images}</td>
+					<td>${camp_InfoDto.camp_View1}</td>
+					<td>${camp_InfoDto.camp_View2}</td>
+					<td>${camp_InfoDto.camp_View3}</td>
+					<td>${camp_InfoDto.camp_Item}</td>
 				</tr>
 				<c:set var="startNum" value="${startNum - 1 }" />
 			</c:forEach>
@@ -74,6 +68,10 @@ table {
 		<c:if test="${endPage < pageCnt }">
 			<a href='campList.do?pageNum=${startPage+blockSize}'>[다음]</a>
 		</c:if>
+	</div>
+	<div align="right">
+		<input type="button" value="캠핑장등록"
+			onclick="location.href='campWriteForm.do'">
 	</div>
 </body>
 </html>

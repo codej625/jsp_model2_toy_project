@@ -108,25 +108,23 @@ public class Camp_InfoDao {
 			pstmt.setInt(2, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Camp_InfoDto Camp_InfoDto = new Camp_InfoDto();
-				Camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
-				Camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
-				Camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
-				Camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
-				Camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
-				Camp_InfoDto.setRating(rs.getInt("rating"));
-				Camp_InfoDto.setReview(rs.getString("review"));
-				Camp_InfoDto.setC_F(rs.getInt("c_F"));
-				Camp_InfoDto.setRes_Pers(rs.getInt("res_Pers"));
-				Camp_InfoDto.setRes_Cost(rs.getInt("res_Cost"));
-				Camp_InfoDto.setRes_Id(rs.getString("res_Id"));
-				Camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
-				Camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
-				Camp_InfoDto.setCamp_View1(rs.getString("camp_View1"));
-				Camp_InfoDto.setCamp_View2(rs.getString("camp_View2"));
-				Camp_InfoDto.setCamp_View3(rs.getString("camp_View3"));
-				Camp_InfoDto.setCamp_Item(rs.getString("camp_Item"));
-				list.add(Camp_InfoDto);
+				Camp_InfoDto camp_InfoDto = new Camp_InfoDto();
+				camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
+				camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
+				camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
+				camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
+				camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
+				camp_InfoDto.setRating(rs.getInt("rating"));
+				camp_InfoDto.setReview(rs.getString("review"));
+				camp_InfoDto.setC_F(rs.getInt("c_F"));
+				camp_InfoDto.setRes_Id(rs.getString("res_Id"));
+				camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
+				camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
+				camp_InfoDto.setCamp_View1(rs.getString("camp_View1"));
+				camp_InfoDto.setCamp_View2(rs.getString("camp_View2"));
+				camp_InfoDto.setCamp_View3(rs.getString("camp_View3"));
+				camp_InfoDto.setCamp_Item(rs.getString("camp_Item"));
+				list.add(camp_InfoDto);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -146,7 +144,6 @@ public class Camp_InfoDao {
 		ResultSet rs = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		Camp_InfoDto Camp_InfoDto = new Camp_InfoDto();
 		String sql = "SELECT * FROM (SELECT ROWNUM rn, a.* FROM (SELECT * FROM camp_info WHERE c_f = ? ORDER BY camp_id DESC) a) WHERE  rn BETWEEN ? AND ?";
 		try {
 			conn = getConnection();
@@ -156,20 +153,21 @@ public class Camp_InfoDao {
 			pstmt.setInt(3, endRow);
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				Camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
-				Camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
-				Camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
-				Camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
-				Camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
-				Camp_InfoDto.setRating(rs.getInt("rating"));
-				Camp_InfoDto.setReview(rs.getString("review"));
-				Camp_InfoDto.setC_F(rs.getInt("c_F"));
-				Camp_InfoDto.setRes_Pers(rs.getInt("res_Pers"));
-				Camp_InfoDto.setRes_Cost(rs.getInt("res_Cost"));
-				Camp_InfoDto.setRes_Id(rs.getString("res_Id"));
-				Camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
-				Camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
-				listCf.add(Camp_InfoDto);
+				Camp_InfoDto camp_InfoDto = new Camp_InfoDto();
+				camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
+				camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
+				camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
+				camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
+				camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
+				camp_InfoDto.setC_F(rs.getInt("c_F"));
+				camp_InfoDto.setRes_Id(rs.getString("res_Id"));
+				camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
+				camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
+				camp_InfoDto.setCamp_View1(rs.getString("camp_View1"));
+				camp_InfoDto.setCamp_View2(rs.getString("camp_View2"));
+				camp_InfoDto.setCamp_View3(rs.getString("camp_View3"));
+				camp_InfoDto.setCamp_Item(rs.getString("camp_Item"));
+				listCf.add(camp_InfoDto);
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -189,7 +187,7 @@ public class Camp_InfoDao {
 		Statement stmt = null;
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		Camp_InfoDto Camp_InfoDto = new Camp_InfoDto();
+		Camp_InfoDto camp_InfoDto = new Camp_InfoDto();
 		String sql = "SELECT * FROM camp_info WHERE camp_Id = ?";
 		try {
 			conn = getConnection();
@@ -197,19 +195,19 @@ public class Camp_InfoDao {
 			pstmt.setInt(1, camp_Id);
 			rs = pstmt.executeQuery();
 			if (rs.next()) {
-				Camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
-				Camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
-				Camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
-				Camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
-				Camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
-				Camp_InfoDto.setRating(rs.getInt("rating"));
-				Camp_InfoDto.setReview(rs.getString("review"));
-				Camp_InfoDto.setC_F(rs.getInt("c_F"));
-				Camp_InfoDto.setRes_Pers(rs.getInt("res_Pers"));
-				Camp_InfoDto.setRes_Cost(rs.getInt("res_Cost"));
-				Camp_InfoDto.setRes_Id(rs.getString("res_Id"));
-				Camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
-				Camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
+				camp_InfoDto.setCamp_Id(rs.getInt("camp_Id"));
+				camp_InfoDto.setCamp_Name(rs.getString("camp_Name"));
+				camp_InfoDto.setCamp_Tel(rs.getString("camp_Tel"));
+				camp_InfoDto.setCamp_Addr(rs.getString("camp_Addr"));
+				camp_InfoDto.setCamp_Loc(rs.getString("camp_Loc"));
+				camp_InfoDto.setC_F(rs.getInt("c_F"));
+				camp_InfoDto.setRes_Id(rs.getString("res_Id"));
+				camp_InfoDto.setCamp_Images(rs.getString("camp_Images"));
+				camp_InfoDto.setCamp_Desc(rs.getString("camp_Desc"));
+				camp_InfoDto.setCamp_View1(rs.getString("camp_View1"));
+				camp_InfoDto.setCamp_View2(rs.getString("camp_View2"));
+				camp_InfoDto.setCamp_View3(rs.getString("camp_View3"));
+				camp_InfoDto.setCamp_Item(rs.getString("camp_Item"));
 			}
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -221,7 +219,7 @@ public class Camp_InfoDao {
 			if (conn != null)
 				conn.close();
 		}
-		return Camp_InfoDto;
+		return camp_InfoDto;
 	}
 
 	public int insert(Camp_InfoDto camp_InfoDto) throws SQLException {
@@ -263,12 +261,12 @@ public class Camp_InfoDao {
 		return result;
 	}
 
-	public Camp_InfoDto select(int camp_id) throws SQLException {
+	public Camp_InfoDto select(int camp_Id) throws SQLException {
 		ResultSet rs = null;
 		Statement stmt = null;
 		Connection conn = null;
 		Camp_InfoDto camp_InfoDto = new Camp_InfoDto();
-		String sql = "SELECT * FROM camp_info WHERE num=" + camp_id;
+		String sql = "SELECT * FROM camp_Info WHERE camp_id =" + camp_Id;
 		try {
 			conn = getConnection();
 			stmt = conn.createStatement();
@@ -299,5 +297,39 @@ public class Camp_InfoDao {
 				conn.close();
 		}
 		return camp_InfoDto;
+	}
+
+	public int update(Camp_InfoDto camp_InfoDto) throws SQLException {
+		int result = 0;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = "UPDATE camp_Info SET camp_Name = ?, camp_Tel = ?, camp_Addr = ?, camp_Loc = ?, c_F = ?, res_Id = ?, camp_Desc = ?, camp_Images = ?, camp_View1 = ?, camp_View2 = ?, camp_View3 = ?, camp_Item = ? WHERE camp_Id = ?";
+
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, camp_InfoDto.getCamp_Name());
+			pstmt.setString(2, camp_InfoDto.getCamp_Tel());
+			pstmt.setString(3, camp_InfoDto.getCamp_Addr());
+			pstmt.setString(4, camp_InfoDto.getCamp_Loc());
+			pstmt.setInt(5, camp_InfoDto.getC_F());
+			pstmt.setString(6, camp_InfoDto.getRes_Id());
+			pstmt.setString(7, camp_InfoDto.getCamp_Desc());
+			pstmt.setString(8, camp_InfoDto.getCamp_Images());
+			pstmt.setString(9, camp_InfoDto.getCamp_View1());
+			pstmt.setString(10, camp_InfoDto.getCamp_View2());
+			pstmt.setString(11, camp_InfoDto.getCamp_View3());
+			pstmt.setString(12, camp_InfoDto.getCamp_Item());
+			pstmt.setInt(13, camp_InfoDto.getCamp_Id());
+			result = pstmt.executeUpdate();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null)
+				pstmt.close();
+			if (conn != null)
+				conn.close();
+		}
+		return result;
 	}
 }

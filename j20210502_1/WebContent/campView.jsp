@@ -17,21 +17,21 @@
 				src="https://www.gocamping.or.kr/upload/camp/1900/thumb/thumb_720_9097zScU1JGVw9ogs5WhU7nk.jpg">
 		</div>
 		<div class="box2">
-			<img alt="error" src="images/${Camp_InfoDto.camp_Images}.jpg">
+			<img alt="error" src="images/${camp_InfoDto.camp_Images}.jpg">
 		</div>
 		<div class="box3">
 			<table>
 				<tr>
 					<th id="thTop">주소</th>
-					<td id="tdTop">${Camp_InfoDto.camp_Addr}</td>
+					<td id="tdTop">${camp_InfoDto.camp_Addr}</td>
 				</tr>
 				<tr>
 					<th>문의처</th>
-					<td>${Camp_InfoDto.camp_Tel}</td>
+					<td>${camp_InfoDto.camp_Tel}</td>
 				</tr>
 				<tr>
 					<th>지역</th>
-					<td>${Camp_InfoDto.camp_Loc}</td>
+					<td>${camp_InfoDto.camp_Loc}</td>
 				</tr>
 				<tr>
 					<th id="thBottom">운영일</th>
@@ -40,15 +40,10 @@
 			</table>
 		</div>
 		<div class="box4">
-<<<<<<< HEAD
 			<div id="resButtonBox">
 				<a id="resButton"
-=======
-			<div class="res">
-				<a id="button"
->>>>>>> 0855528a26868f6333b7bcb99f91f1370959b8f5
 					onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
-					href="${Camp_InfoDto.res_Id}">예약하기</a>
+					href="${camp_InfoDto.res_Id}">예약하기</a>
 			</div>
 		</div>
 		<div class="box5">
@@ -58,13 +53,16 @@
 			<hr>
 			<h3>캠핑장 전경</h3>
 			<img class="images1" alt="error"
-				src="images/${camp_Images_View_1}.jpg"> <img class="images1"
-				alt="error" src="images/${camp_Images_View_2}.jpg"> <img
-				class="images1" alt="error" src="images/${camp_Images_View_2}.jpg">
+				src="images/${camp_InfoDto.camp_View1}.jpg"> <img
+				class="images1" alt="error"
+				src="images/${camp_InfoDto.camp_View2}.jpg"> <img
+				class="images1" alt="error"
+				src="images/${camp_InfoDto.camp_View3}.jpg">
 		</div>
 		<div class="box7">
 			<h3>캠핑장 편의시설</h3>
-			<img class="images2" alt="error" src="images/${camp_Images_Item}.jpg"></img>
+			<img class="images2" alt="error"
+				src="images/${camp_InfoDto.camp_Item}.jpg"></img>
 		</div>
 
 		<div class="box8">
