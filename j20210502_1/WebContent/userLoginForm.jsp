@@ -62,10 +62,15 @@
             </div>
         </div>
         <div class="submit">
-            <input type="submit" value="submit">
+            <input type="button" value="submit" id="testBtn">
         </div>
     </div>
 </div>
+
+<form id="form" action="userLoginPro.do" method="post" name="frm">
+	<input type="hidden" id="id" name="user_id" value="">
+	<input type="hidden" id="pw" name="user_pw" value="">
+</form>
 
 <!-- <form id="form" action="userLoginPro.do" method="post" name="frm">
 	<table border="1">
@@ -100,6 +105,23 @@
  -->
 
 <script type="text/javascript">
+	$(document).ready(function() {
+// 		$("#testBtn").click(function(){
+// 			$("#id").val($("#user_id").val());
+// 			$("#pw").val($("#user_pw").val());
+// 			$( "#form" ).submit();
+// 		});
+		
+		$("#testBtn").bind("click",testBtnClickEvent);
+
+	});
+	
+	function testBtnClickEvent(){
+		$("#id").val($("#user_id").val());
+		$("#pw").val($("#user_pw").val());
+		$( "#form" ).submit();
+	}
+	
 	function confirmSave(checkbox) {
 		let isRemember;
 
