@@ -125,7 +125,39 @@ public class MemberDao {
 		}
 		return member;
 	}
-
+	
+	// 이메일 중복 확인
+	public Member selectEmail(String user_email) throws SQLException {
+		Member member = new Member();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from user_info where user_email =?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_email);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				member.setUser_id(rs.getString(1));
+				member.setUser_pw(rs.getString(2));
+				member.setUser_name(rs.getString(3));
+				member.setUser_tel(rs.getString(4));
+				member.setUser_addr(rs.getString(5));
+				member.setUser_email(rs.getString(6));
+				member.setUser_gender(rs.getString(7));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+			if (rs != null) rs.close();
+		}
+		return member;
+	}
+		
 	// 회원정보 수정
 	public int update(Member member) throws SQLException {
 		Connection conn = null;

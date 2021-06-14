@@ -32,7 +32,7 @@
 			<input type="button" value="내가 찜한 캠핑장" onclick="location.href='userLike.do?user_id=${sessionID}'">
 		</div>
 		<div>
-			<input type="button" value="내가 쓴글" onclick="location.href='userWriteList.do?user_id=${sessionID}'">
+			<input type="button" value="내가 쓴 글" onclick="location.href='userWriteList.do?user_id=${sessionID}'">
 		</div>
 		
 	</div>

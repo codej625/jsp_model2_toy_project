@@ -117,6 +117,13 @@ public class Controller extends HttpServlet {
 			// flush-> 버퍼있는걸 다올려라
 			pw.flush();
 
+		} else if(command.contains("ajaxEmailCheck")) {
+			String emailCheck = (String) request.getAttribute("emailCheck");
+			//System.out.println("Controller writer->" + writer);
+			PrintWriter pw = response.getWriter();
+			pw.write(emailCheck);
+			// flush-> 버퍼있는걸 다올려라
+			pw.flush();
 		} else { // 일반적인경우
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

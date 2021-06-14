@@ -52,11 +52,16 @@
 // 		location.href='userIdCheckPro.do?user_id='+frm.user_id.value;
 	};
 	function emailChk() {
-		if(!frm.user_id.value) {
-			alert("아이디를 입력하세요.");
-			return false;
-		} else { location.href='userEmailCheckPro.do?user_email='+frm.user_email.value; }
-	};
+		var p_user_email = frm.user_email.value;
+		$.ajax({
+			url:"<%=context%>/ajaxEmailCheck.do",
+			data:{user_email : p_user_email},
+			dataType:'text',
+			success:function(data){
+				$('#emailCheckName').val(data);
+			}
+		});
+	}
 </script>
 </head>
 <body>
@@ -105,9 +110,11 @@
          	</tr>
 			<tr>
 				<td>이메일</td>
-				<td><input type="text" name="user_email" required="required">
-					<input type="button" value="중복체크" onclick="emailChk()"></td>
-				
+				<td>
+					<input type="text" name="user_email" id="user_email" required="required">
+					<input type="button" value="중복체크" onclick="emailChk()">
+					<input type="text"   id="emailCheckName"   readonly="readonly" style="width:100%; border: none; color: red;">
+				</td>
 			</tr>
 			<tr>
 				<td>성별</td>
