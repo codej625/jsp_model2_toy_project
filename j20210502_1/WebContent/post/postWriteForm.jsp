@@ -10,10 +10,12 @@
 <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<form action="postWritePro.do?board_num=${board_num}&pageNum=${pageNum}&post_num=${post_num + 1}"method="post">
-		<input type="text" name="board_num" value="${board_num}">
-		<input type="text" name="pageNum" value="${pageNum }">
-		<input type="text" name="post_num" value="${post_num +1}">
+	<form
+		action="postWritePro.do?board_num=${board_num}&pageNum=${pageNum}&post_num=${post_num + 1}"
+		method="post">
+		<input type="text" name="board_num" value="${board_num}"> <input
+			type="text" name="pageNum" value="${pageNum }"> <input
+			type="text" name="post_num" value="${post_num +1}">
 		<table>
 			<caption>
 				<h2>게시판 글쓰기</h2>

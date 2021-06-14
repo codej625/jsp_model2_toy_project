@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"  %>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,12 +7,15 @@
 <title>Insert title here</title>
 <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
 <style type="text/css">
-	table { width: 80%; }
+table {
+	width: 80%;
+}
 </style>
 </head>
 <body>
 	<table border="1">
-		<caption><h2>게시판 상세내역</h2>${board_num }</caption>
+		<caption>
+			<h2>게시판 상세내역</h2>${board_num }</caption>
 		<tr>
 			<td width="50">번호</td>
 			<td>${post.post_num}</td>
@@ -39,16 +42,18 @@
 			<td><pre>${post.post_cont}</pre></td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<input type="button" value="수정" onclick="location.href='postUpdateForm.do?board_num=${post.board_num}&post_num=${post.post_num}&pageNum=${pageNum}'">
-				<input type="button" value="답변작성" onclick="location.href='postWriteForm.do?post_num=${post.post_num}&pageNum=${pageNum}'">
-				<input type="button" value="삭제" onclick="location.href='postDeleteForm.do?board_num=${board_num}&post_num=${post_num}'">
-				<input type="button" value="목록" onclick="location.href='boardList.do?pageNum=${pageNum}'">
-			</td>
+			<td colspan="2"><input type="button" value="수정"
+				onclick="location.href='postUpdateForm.do?board_num=${post.board_num}&post_num=${post.post_num}&pageNum=${pageNum}'">
+				<input type="button" value="답변작성"
+				onclick="location.href='postWriteForm.do?post_num=${post.post_num}&pageNum=${pageNum}'">
+				<input type="button" value="삭제"
+				onclick="location.href='postDeleteForm.do?board_num=${board_num}&post_num=${post_num}'">
+				<input type="button" value="목록"
+				onclick="location.href='boardList.do?pageNum=${pageNum}'"></td>
 		</tr>
 		<tr>
-			<td><input type="text" id="board_num" value="${board_num}"> 
-			<input type="text" id="post_num" value="${post_num}"></td>
+			<td><input type="text" id="board_num" value="${board_num}">
+				<input type="text" id="post_num" value="${post_num}"></td>
 		</tr>
 	</table>
 </body>
