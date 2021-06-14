@@ -3,8 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="css/theme.css" rel="stylesheet" />
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입 약관동의</title>
 <style type="text/css">
 * {
 	margin: 0;

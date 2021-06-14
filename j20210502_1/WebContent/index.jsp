@@ -165,7 +165,7 @@
 							href="#!">회원가입</a></li>
 						<li class="lh-lg"><a
 							class="text-800 text-decoration-none text-uppercase fw-bold"
-							href="#!">로그인</a></li>
+				z			href="#!">로그인</a></li>
 					</ul>
 				</div>
 				<div class="border-bottom border-700"></div>
