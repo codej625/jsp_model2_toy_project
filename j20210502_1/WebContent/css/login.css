@@ -7,7 +7,7 @@
 
 a {
     text-decoration: none;
-    color: black;
+    color: #495057;
 }
 
 li {
@@ -20,7 +20,7 @@ li {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #000000;
+    background: #495057;
 }
 
 .login {
@@ -110,13 +110,16 @@ h2 {
     border: 0;
     outline: none;
     border-radius: 40px;
-    background: black;
+    background: #495057;
     color: white;
     font-size: 1.2em;
     letter-spacing: 2px;
 }
 
+
 .submit input:hover{
+
+
 	 background: white;
     color: black;
 }

@@ -128,7 +128,7 @@
 								placeholder="캠핑장 검색" />
 							<div class="col-4 col-lg-3"
 								style="text-align: center; border: none; background-color: transparent;">
-								<button class="btn btn-primary rounded-start-0" type="submit">검색</button>
+								<button class="btn btn-primary rounded-start-0" type="submit"style="background-color:lightsalmon;">검색</button>
 							</div>
 						</div>
 					</div>
@@ -165,10 +165,10 @@
 					<ul class="list-unstyled mb-md-4 mb-lg-0">
 						<li class="lh-lg"><a
 							class="text-800 text-decoration-none text-uppercase fw-bold"
-							href="#!">회원가입</a></li>
+							href="userAgree.do">회원가입</a></li>
 						<li class="lh-lg"><a
 							class="text-800 text-decoration-none text-uppercase fw-bold"
-							href="#!">로그인</a></li>
+							href="userLoginForm.do">로그인</a></li>
 					</ul>
 				</div>
 				<div class="border-bottom border-700"></div>

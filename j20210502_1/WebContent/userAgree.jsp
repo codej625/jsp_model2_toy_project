@@ -14,7 +14,7 @@
 }
 
 body {
-	background-color: #f7f7f7;
+	background-color: black;
 }
 
 ul>li {
@@ -37,8 +37,8 @@ a {
 }
 
 ul.join_box {
-	border: 1px solid #ddd;
-	background-color: #fff;
+	border: none;
+	background-color: #black;
 }
 
 .checkBox, .checkBox>ul {
@@ -53,7 +53,7 @@ ul.join_box {
 	width: 85%;
 	padding: 15px;
 	font-weight: 600;
-	color: #888;
+	color: white;
 }
 
 .checkBox>ul>li:nth-child(2) {
@@ -64,11 +64,11 @@ ul.join_box {
 }
 
 .checkBox textarea {
-	width: 96%;
-	height: 90px;
+	width: 97%;
+	height: 110px;
 	margin: 0 2%;
-	background-color: #f7f7f7;
-	color: #888;
+	background-color: white;
+	color: #white;
 	border: none;
 }
 
@@ -92,13 +92,13 @@ ul.join_box {
 }
 
 .fpmgBt1 {
-	background-color: #fff;
-	color: #888
+	background-color: lightsalmon;
+	color: white;
 }
 
 .fpmgBt2 {
-	background-color: lightsalmon;
-	color: #fff
+	background-color: #2196f3;
+	color: white;
 }
 </style>
 

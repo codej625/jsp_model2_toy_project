@@ -7,7 +7,7 @@
 <title>로그인</title>
 
 <%--스타일 시트--%>
-<link href="css/login.css" rel="stylesheet" />
+
 
 </head>
 <body onload="bodyOnload()">
@@ -32,44 +32,47 @@
 	rel="stylesheet">
 <script src="https://kit.fontawesome.com/53a8c415f1.js"
 	crossorigin="anonymous"></script>
-<link rel="stylesheet" href="css/login.css">
+	<link href="css/login.css" rel="stylesheet" />
 </head>
 
 <div class="wrap">
-    <div class="login">
-        <h2>Log-in</h2>
-        <div class="login_sns">
-            <li><a href="#googleLogin"><i class="fab fa-google"></i></a></li>
-        </div>
-        <div class="login_id">
-            <h4>아이디</h4>
-            <label for="user_id"></label><input type="email" name="user_id" id="user_id" placeholder="아이디">
-        </div>
-        <div class="login_pw">
-            <h4>비밀번호</h4>
-            <label for="user_pw"></label><input type="password" name="user_pw" id="user_pw" placeholder="비밀번호">
-        </div>
-        <div class="login_etc">
-            <div class="checkbox">
-                <label for="chk_id"></label><input type="checkbox" name="idcheck" id="chk_id" onclick="confirmSave(this)"> 아이디저장
-            </div>
-            <br>
-            <div class="forgot_id">
-            	<a href="findUserIdForm.do">아이디 찾기</a>
-            </div>
-            <div class="forgot_pw">
-                <a href="findUserPwForm.do">비밀번호 찾기</a>
-            </div>
-        </div>
-        <div class="submit">
-            <input type="button" value="submit" id="testBtn">
-        </div>
-    </div>
+	<div class="login">
+		<h2>Log-in</h2>
+		<div class="login_sns">
+			<li><a href="#googleLogin"><i class="fab fa-google"></i></a></li>
+		</div>
+		<div class="login_id">
+			<h4>아이디</h4>
+			<label for="user_id"></label><input type="email" name="user_id"
+				id="user_id" placeholder="아이디">
+		</div>
+		<div class="login_pw">
+			<h4>비밀번호</h4>
+			<label for="user_pw"></label><input type="password" name="user_pw"
+				id="user_pw" placeholder="비밀번호">
+		</div>
+		<div class="login_etc">
+			<div class="checkbox">
+				<label for="chk_id"></label><input type="checkbox" name="idcheck"
+					id="chk_id" onclick="confirmSave(this)"> 아이디저장
+			</div>
+			<br>
+			<div class="forgot_id">
+				<a href="findUserIdForm.do">아이디 찾기</a>
+			</div>
+			<div class="forgot_pw">
+				<a href="findUserPwForm.do">비밀번호 찾기</a>
+			</div>
+		</div>
+		<div class="submit">
+			<input type="button" value="submit" id="testBtn">
+		</div>
+	</div>
 </div>
 
 <form id="form" action="userLoginPro.do" method="post" name="frm">
-	<input type="hidden" id="id" name="user_id" value="">
-	<input type="hidden" id="pw" name="user_pw" value="">
+	<input type="hidden" id="id" name="user_id" value=""> <input
+		type="hidden" id="pw" name="user_pw" value="">
 </form>
 
 <!-- <form id="form" action="userLoginPro.do" method="post" name="frm">
@@ -106,22 +109,22 @@
 
 <script type="text/javascript">
 	$(document).ready(function() {
-// 		$("#testBtn").click(function(){
-// 			$("#id").val($("#user_id").val());
-// 			$("#pw").val($("#user_pw").val());
-// 			$( "#form" ).submit();
-// 		});
-		
-		$("#testBtn").bind("click",testBtnClickEvent);
+		// 		$("#testBtn").click(function(){
+		// 			$("#id").val($("#user_id").val());
+		// 			$("#pw").val($("#user_pw").val());
+		// 			$( "#form" ).submit();
+		// 		});
+
+		$("#testBtn").bind("click", testBtnClickEvent);
 
 	});
-	
-	function testBtnClickEvent(){
+
+	function testBtnClickEvent() {
 		$("#id").val($("#user_id").val());
 		$("#pw").val($("#user_pw").val());
-		$( "#form" ).submit();
+		$("#form").submit();
 	}
-	
+
 	function confirmSave(checkbox) {
 		let isRemember;
 
@@ -186,7 +189,6 @@
 		if (chk_id.user_id.value !== "")
 			chk_id.chk_id.checked = true;
 	}
-	
 </script>
 </body>
 </html>
