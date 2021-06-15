@@ -1,5 +1,4 @@
-@charset "UTF-8";
-
+/* @charset "UTF-8"; */
 #wrapper {
 	display: grid;
 	grid-template-columns: repeat(30, 1fr);
@@ -16,10 +15,11 @@
 .campNumber {
 	width: 100%;
 	height: 100%;
+	margin-bottom: 10%;
 }
 
 .campNumber h3 {
-	margin-top: 8%;
+	margin-bottom: 8%;
 }
 
 .box2 {
@@ -32,6 +32,7 @@
 .campName {
 	width: 100%;
 	height: 100%;
+	margin-top: 3.4%;
 }
 
 .campName h2 {
@@ -63,8 +64,10 @@
 }
 
 .campTable {
+	margin-top: 8.2%;
 	width: 100%;
 	height: 100%;
+	width: 100%;
 }
 
 .th {

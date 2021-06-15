@@ -79,7 +79,7 @@
 		<div class="box8">
 			<h3>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 상세 소개</h3>
 			<br>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;${camp_InfoDto.camp_Desc}</p>
+			<p class="desc">${camp_InfoDto.camp_Desc}</p>
 		</div>
 	</div>
 </body>

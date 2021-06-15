@@ -5,14 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<link rel="stylesheet" href="css/style.css" type="text/css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<title>캠핑장 리스트</title>
+<title>CampList</title>
 <style type="text/css">
 table {
 	width: 100%;
@@ -23,14 +22,14 @@ table {
 	<h3>총 ${totCnt}개 캠핑장이 검색되었습니다.</h3>
 	<table class="table table-striped">
 		<tr>
-			<th>캠핑장번호</th>
-			<th>캠핑장이름</th>
-			<th>전화번호</th>
-			<th>주소</th>
+			<th class="col-md-1">캠핑장번호</th>
+			<th class="col-md-1">캠핑장이름</th>
+			<th class="col-md-1">전화번호</th>
+			<th class="col-md-1">주소</th>
 			<th>지역</th>
 			<th>유료/무료</th>
 			<th>예약링크</th>
-			<th>캠핑장설명</th>
+			<th class="col-md-10">캠핑장설명</th>
 			<th>캠핑장이미지</th>
 			<th>캠핑장전경1</th>
 			<th>캠핑장전경2</th>
