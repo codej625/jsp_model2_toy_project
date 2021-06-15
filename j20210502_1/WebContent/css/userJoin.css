@@ -110,6 +110,7 @@ ul {
 .btn_wrap {
 	text-align: center;
 	margin: 40px 0 30px;
+	border:none;
 }
 
 .btn_wrap a {
@@ -144,7 +145,7 @@ ul {
 	text-align: right;
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"] {
+.form_txtInput .checkbox_wrap input[type="radio"] {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -155,7 +156,7 @@ ul {
 	border: 0;
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"]+label {
+.form_txtInput .checkbox_wrap input[type="radio"]+label {
 	display: inline-block;
 	line-height: 14px;
 	position: relative;
@@ -168,7 +169,7 @@ ul {
 	-ms-user-select: none;
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"]+label:before {
+.form_txtInput .checkbox_wrap input[type="radio"]+label:before {
 	content: '';
 	position: absolute;
 	top: 0px;
@@ -180,19 +181,19 @@ ul {
 	border: 1px solid #c2c2c2;
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"]+label:active:before,
-	.checkbox_wrap input[type="checkbox"]:checked+label:active:before {
+.form_txtInput .checkbox_wrap input[type="radio"]+label:active:before,
+	.checkbox_wrap input[type="radio"]:checked+label:active:before {
 	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px 1px 3px
 		rgba(0, 0, 0, 0.1);
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"]:checked+label:before
+.form_txtInput .checkbox_wrap input[type="radio"]:checked+label:before
 	{
 	background: #fff;
 	border-color: #ddd;
 }
 
-.form_txtInput .checkbox_wrap input[type="checkbox"]:checked+label:after
+.form_txtInput .checkbox_wrap input[type="radio"]:checked+label:after
 	{
 	content: '✓';
 	color: #0094ff;
@@ -560,6 +561,7 @@ ul {
 	}
 	.btn_wrap {
 		overflow: hidden;
+		border:none;
 	}
 	.join_form.idpwFind table td select {
 		width: 30%;
@@ -590,3 +592,22 @@ ul {
 		margin: 0 0 0 5px;
 	}
 }
+
+.button {
+	display: block;
+	width: 200px;
+	height: 40px;
+	line-height: 40px;
+	border: 1px #3399dd solid;;
+	margin: 15px auto;
+	background-color: #000000;
+	text-align: center;
+	cursor: pointer;
+	color: #333;
+	transition: all 0.9s, color 0.3;
+}
+
+.button :hover{
+	color:black;
+}
+
