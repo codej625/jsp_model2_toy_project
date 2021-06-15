@@ -4,6 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>campContentView</title>
 <link rel="stylesheet" href="css/style3.css" type="text/css">
 </head>
@@ -26,7 +32,7 @@
 		</div>
 		<div class="box4">
 			<div class=campTable>
-				<table>
+				<table class="table">
 					<tr>
 						<th class="th">전화번호</th>
 						<td>${camp_InfoDto.camp_Tel}</td>
@@ -65,7 +71,7 @@
 				<input type="button" value="수정"
 					onclick="location.href='campUpdateForm.do?camp_Id=${camp_InfoDto.camp_Id}&pageNum=${pageNum}'">
 				<input type="button" value="삭제"
-					onclick="location.href='postUpdateForm.do?camp_Id=${camp_InfoDto.camp_Id}&pageNum=${pageNum}'">
+					onclick="location.href='campDeleteForm.do?camp_Id=${camp_InfoDto.camp_Id}&pageNum=${pageNum}'">
 				<input type="button" value="목록"
 					onclick="location.href='campList.do?pageNum=${pageNum}'">
 			</div>

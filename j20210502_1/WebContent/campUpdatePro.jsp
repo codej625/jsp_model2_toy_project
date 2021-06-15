@@ -11,7 +11,7 @@
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 			alert("입력 완료");
-			location.href = "campContent.do?camp_Id=${camp_Id}&pageNum=${pageNum}";
+			location.href = "campContent.do?pageNum=${pageNum}";
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">

@@ -16,7 +16,7 @@
 	</c:if>
 	<c:if test="${result == 0 }">
 		<script type="text/javascript">
-			alert("입력오류");
+			alert("error");
 			location.href = "campList.do?camp_Id=${camp_Id}&pageNum=${pageNum}";
 		</script>
 	</c:if>
