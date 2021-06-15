@@ -6,6 +6,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 <title>EXPLORER</title>
 <script type="text/javascript">
 	function formChange(obj) {
@@ -20,20 +27,14 @@
 
 	}
 </script>
-<link rel="stylesheet" href="css/style.css" type="text/css">
 </head>
 <body>
 	<div id="wrapper">
 		<div id="header">
 			<div id="cF">
-				<ul id="nav_Menu">
-					<li>평점순$</li>
-					<li>리뷰순$</li>
-					<li>지역순$</li>
-				</ul>
 				<form action="explorerCf.do" method="post">
 					<select name="c_F" id="c_F" onchange="formChange(this.form)">
-						<option>유/무료</option>
+						<option>유/무료 선택</option>
 						<option value='0'>유료</option>
 						<option value='1'>무료</option>
 					</select>
@@ -43,25 +44,39 @@
 		</div>
 
 		<c:if test="${totCnt > 0}">
-			<c:forEach var="Camp_InfoDto" items="${list}">
+			<c:forEach var="camp_InfoDto" items="${list}">
 				<div id="article">
 					<div id="camp_Images">
-						<a href='campView.do?camp_Id=${Camp_InfoDto.camp_Id}'><img
-							alt="error" src="images/${Camp_InfoDto.camp_Images}.jpg"></a>
+						<a href='campView.do?camp_Id=${camp_InfoDto.camp_Id}'><img
+							alt="error" src="images/${camp_InfoDto.camp_Images}.jpg"></a>
 					</div>
 					<h2 id="camp_Name">
-						&nbsp;&nbsp;[<a
-							href='campView.do?camp_Id=${Camp_InfoDto.camp_Id}'>${Camp_InfoDto.camp_Name}</a>]
+						&nbsp;&nbsp;<a href='campView.do?camp_Id=${camp_InfoDto.camp_Id}'>${camp_InfoDto.camp_Name}</a>
 					</h2>
 					<hr>
 					<div id="camp_Addr">
-						<p>캠핑장 주소 : ${Camp_InfoDto.camp_Loc}</p>
-						<p>캠핑장 전화 : ${Camp_InfoDto.camp_Tel}</p>
-						<p>캠핑장 설명 : ${Camp_InfoDto.camp_Desc}</p>
 						<p>
-							<a id="button" onclick="alert('예약 전 캠핑장에 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')" href="${Camp_InfoDto.res_Id}">예약하기</a>
+							<strong>캠핑장 주소</strong> : ${camp_InfoDto.camp_Addr}
+						</p>
+						<p>
+							<strong>캠핑장 전화</strong> : ${camp_InfoDto.camp_Tel}
+						</p>
+						<p>
+							<strong>캠핑장 설명</strong> : ${camp_InfoDto.camp_Desc}
 						</p>
 					</div>
+					<p>
+						<strong>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 편의시설</strong> :
+					</p>
+					<p>
+						<img class="images2" alt="error"
+							src="images/${camp_InfoDto.camp_Item}.jpg"></img>
+					</p>
+					<p>
+						<a id="button"
+							onclick="alert('예약 전 캠핑장 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
+							href="${camp_InfoDto.res_Id}" target="_blank">예약하기</a>
+					</p>
 				</div>
 				<c:set var="startNum" value="${startNum - 1}" />
 			</c:forEach>
