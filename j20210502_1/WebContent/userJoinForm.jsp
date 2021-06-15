@@ -10,6 +10,9 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap"
+	rel="stylesheet">
 <link href="css/userJoin.css" rel="stylesheet" />
 <link href="css/label.css" rel="stylesheet" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -77,7 +80,7 @@
 			<div class="join_form">
 		<table>
 			<colgoroup>
-			<col width="30%"/>
+			<col width="25%"/>
 			<col width="auto"/>
 			</colgoroup>
 			<tr>
