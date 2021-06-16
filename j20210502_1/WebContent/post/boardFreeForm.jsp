@@ -9,6 +9,50 @@
 <style>
 table {
 	width: 100%;
+	padding-top: 10px;
+}
+
+th, td {
+	margin: auto;
+}
+
+/* ul = nav2, li = td */
+#board_num, #pageNum, #post_num {
+	display: none;
+}
+
+#tbody {
+	margin: auto;
+	text-align: right;
+}
+
+nav2 {
+	backgorund-color: #ffdab9;
+	width: 25%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	position: fixed;
+	height: 100%;
+	overflow: auto;
+}
+
+td a {
+	display: block;
+	color: #000000;
+	padding: 8px 15px 8px 15px;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+td a:current {
+	background-color: #ff6347;
+	color: white;
+}
+
+td a:hover:not(.current) {
+	background-color: #cd853f;
+	color: white;
 }
 </style>
 <!-- Required meta tags -->
@@ -17,9 +61,7 @@ table {
 	href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap"
 	rel="stylesheet">
 
-<link rel="stylesheet" href="/icomoon/style.css">
 
-<link rel="stylesheet" href="/css/owl.carousel.min.css">
 
 <link rel="stylesheet" href="/css/board.css">
 <!-- Bootstrap CSS -->
@@ -79,26 +121,25 @@ table {
 			</div>
 		</div>
 	</nav>
+
+	
 	<div class="content">
 		<div class="container">
 			<h2 class="mb-5" style="color: black;">자유 게시판</h2>
 			<table>
-				<tr>
-					<td><a
-						href="postWriteForm.do?board_num=${board_num}&post_num=${post_num}&pageNum=${currentPage }">자유
-							글쓰기</a> <input type="text" id="board_num" value="${board_num}">
-						<input type="text" id="pageNum" value="${currentPage }"> <input
-						type="text" id="post_num" value="${post_num}"></td>
-				</tr>
+
 
 				<tr>
-					<td><a href="boardNoticeList.do?board_num=0">공지게시판</a></td>
+					<td><a class="nav2" id="nav2"
+						href="boardNoticeList.do?board_num=0">공지게시판</a></td>
 				</tr>
 				<tr>
-					<td><a href="boardFreeList.do?board_num=1">자유게시판</a></td>
+					<td><a class="nav2" id="nav2"
+						href="boardFreeList.do?board_num=1">자유게시판</a></td>
 				</tr>
 				<tr>
-					<td><a href="boardMarketList.do?board_num=2">마켓게시판</a></td>
+					<td><a class="nav2" id="nav2"
+						href="boardMarketList.do?board_num=2">마켓게시판</a></td>
 				</tr>
 			</table>
 			<table>
@@ -133,6 +174,17 @@ table {
 				</c:if>
 			</table>
 
+			<table>
+				<tbody>
+					<tr>
+						<td><a
+							href="postWriteForm.do?board_num=${board_num}&post_num=${post_num}&pageNum=${currentPage }">자유
+								글쓰기</a> <input type="text" id="board_num" value="${board_num}">
+							<input type="text" id="pageNum" value="${currentPage }">
+							<input type="text" id="post_num" value="${post_num}"></td>
+					</tr>
+				</tbody>
+			</table>
 			<div style="text-align: center;">
 				<c:if test="${startPage > blockSize }">
 					<a href='boardList.do?pageNum=${startPage-blockSize}'>[이전]</a>

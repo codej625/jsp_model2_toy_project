@@ -11,6 +11,42 @@
 table {
 	width: 100%;
 }
+#board_num, #pageNum, #post_num{
+	display:none;
+}
+
+
+nav2 {
+	backgorund-color: #ffdab9;
+	width: 50%;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	border-bottom: solid 1px black;
+	
+	float:left;
+}
+
+td a {
+	display: block;
+	color: #000000;
+	padding: 8px;
+	text-decoration: none;
+	font-weight: bold;
+	float:left;
+}
+
+
+
+td a:current {
+	background-color: #ff6347;
+	color: white;
+}
+
+td a:hover:not(.current) {
+	background-color: #cd853f;
+	color: white;
+}
 </style>
 <!-- Required meta tags -->
 
@@ -126,21 +162,15 @@ table {
 			<h2 class="mb-5" style="color: black;">장터 게시판</h2>
 			<table>
 				<tr>
-					<td><a
-						href="postWriteForm.do?board_num=${board_num}&post_num=${post_num}&pageNum=${currentPage }">장터
-							글쓰기</a> <input type="text" id="board_num" value="${board_num}">
-						<input type="text" id="pageNum" value="${currentPage }"> <input
-						type="text" id="post_num" value="${post_num}"></td>
-				</tr>
-
-				<tr>
-					<td><a href="boardNoticeList.do?board_num=0">공지게시판</a></td>
+					<td><a id="nav2" href="boardNoticeList.do?board_num=0">공지게시판</a></td>
 				</tr>
 				<tr>
-					<td><a href="boardFreeList.do?board_num=1">자유게시판</a></td>
+					<td><a id="nav2"
+						href="boardFreeList.do?board_num=1">자유게시판</a></td>
 				</tr>
 				<tr>
-					<td><a href="boardMarketList.do?board_num=2">마켓게시판</a></td>
+					<td><a id="nav2"
+						href="boardMarketList.do?board_num=2">마켓게시판</a></td>
 				</tr>
 			</table>
 			<table>
@@ -174,6 +204,16 @@ table {
 					</tr>
 				</c:if>
 			</table>
+
+		<table>
+			<tr>
+					<td><a
+						href="postWriteForm.do?board_num=${board_num}&post_num=${post_num}&pageNum=${currentPage }">자유
+							글쓰기</a> <input type="text" id="board_num" value="${board_num}">
+						<input type="text" id="pageNum" value="${currentPage }"> <input
+						type="text" id="post_num" value="${post_num}"></td>
+				</tr>
+</table>
 
 			<div style="text-align: center;">
 				<c:if test="${startPage > blockSize }">
