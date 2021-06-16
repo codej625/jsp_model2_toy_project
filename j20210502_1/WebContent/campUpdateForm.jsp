@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>등록정보 수정</title>
+<title>Update</title>
 </head>
 <body>
 <body>

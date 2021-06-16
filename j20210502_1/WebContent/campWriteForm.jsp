@@ -5,8 +5,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>캠핑장 등록</title>
+<title>Write</title>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<form action="campWritePro.do?pageNum=${pageNum}" method="post">
@@ -47,7 +53,8 @@
 			<tr>
 				<td>캠핑장이미지</td>
 				<td><input type="text" name="camp_Images" required="required"></td>
-				<td style="color: red">Ex) 캠핑장 번호와 동일하게 맞춘다. 캠핑장 번호가 1이라면 1입력 ※업로드 사이즈는 720x480 권장</td>
+				<td style="color: red">Ex) 캠핑장 번호와 동일하게 맞춘다. 캠핑장 번호가 1이라면 1입력
+					※업로드 사이즈는 720x480 권장</td>
 			</tr>
 			<tr>
 				<td>캠핑장전경1</td>
