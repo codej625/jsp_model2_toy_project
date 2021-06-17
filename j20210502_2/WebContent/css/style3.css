@@ -1,0 +1,101 @@
+/* @charset "UTF-8"; */
+#wrapper {
+	display: grid;
+	grid-template-columns: repeat(30, 1fr);
+	grid-auto-rows: auto;
+}
+
+.box1 {
+	grid-column-start: 1;
+	grid-column-end: 5;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.campNumber {
+	width: 100%;
+	height: 100%;
+	margin-bottom: 10%;
+}
+
+.campNumber h3 {
+	margin-bottom: 8%;
+}
+
+.box2 {
+	grid-column-start: 5;
+	grid-column-end: 15;
+	grid-row-start: 1;
+	grid-row-end: 2;
+}
+
+.campName {
+	width: 100%;
+	height: 100%;
+	margin-top: 3.4%;
+}
+
+.campName h2 {
+	margin-top: 2%;
+}
+
+.box3 {
+	grid-column-start: 1;
+	grid-column-end: 15;
+	grid-row-start: 2;
+	grid-row-end: 3;
+}
+
+.campImage {
+	width: 100%;
+	height: 100%;
+}
+
+.campImage img {
+	width: 100%;
+	height: 100%;
+}
+
+.box4 {
+	grid-column-start: 15;
+	grid-column-end: 31;
+	grid-row-start: 1;
+	grid-row-end: 3;
+}
+
+.campTable {
+	margin-top: 8.2%;
+	width: 100%;
+	height: 100%;
+	width: 100%;
+}
+
+.th {
+	width: 40%;
+	height: 50px;
+}
+
+.td {
+	width: 100%;
+}
+
+.td2 {
+	width: 40%;
+}
+
+.box5 {
+	grid-column-start: 1;
+	grid-column-end: 31;
+	grid-row-start: 3;
+	grid-row-end: 4;
+}
+
+.button {
+	width: 100%;
+	height: 100%;
+}
+
+.button input {
+	float: right;
+	margin-right: 1%;
+}
