@@ -120,9 +120,9 @@ td a:hover:not(.current) {
 				</ul>
 			</div>
 		</div>
-	</nav>
+</nav>
+	<!--  -->
 
-	
 	<div class="content">
 		<div class="container">
 			<h2 class="mb-5" style="color: black;">자유 게시판</h2>
