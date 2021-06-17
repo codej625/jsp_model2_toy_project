@@ -36,8 +36,8 @@
 </head>
 
 <div class="wrap">
-	<div class="login" style="color:#495057;">
-		<h2>Sign-in</h2>
+	<div class="login">
+		<h2>Log-in</h2>
 		<div class="login_sns">
 			<li><a href="#googleLogin"><i class="fab fa-google"></i></a></li>
 		</div>
@@ -71,8 +71,8 @@
 </div>
 
 <form id="form" action="userLoginPro.do" method="post" name="frm">
-	<input type="hidden" id="id" name="user_id" value=""> 
-	<input type="hidden" id="pw" name="user_pw" value="">
+	<input type="hidden" id="id" name="user_id" value=""> <input
+		type="hidden" id="pw" name="user_pw" value="">
 </form>
 
 <!-- <form id="form" action="userLoginPro.do" method="post" name="frm">

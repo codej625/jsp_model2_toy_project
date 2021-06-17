@@ -9,17 +9,42 @@
 
 <title>글작성</title>
 <style>
-/* body {
-	text-align: center;
-	position: fixed;
-}
- */
-header {
-	padding-bottom: 100px;
-}
-
 #board_num, #pagenNum, #post_num {
 	display: none;
+}
+
+input [type=submit] {
+	width: 100%;
+	height: 50px;
+	border: 0;
+	outline: none;
+	border-radius: 40px;
+	background: #495057;
+	color: white;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+}
+
+input [type=submit]:hover {
+	background: white;
+	color: black;
+}
+
+input [type=button] {
+	width: 100%;
+	height: 50px;
+	border: 0;
+	outline: none;
+	border-radius: 40px;
+	background: #495057;
+	color: white;
+	font-size: 1.2em;
+	letter-spacing: 2px;
+}
+
+input [type=button]:hover {
+	background: white;
+	color: black;
 }
 
 nav2 {
@@ -50,15 +75,8 @@ td a:hover:not(.current) {
 	background-color: #cd853f;
 	color: white;
 }
-
-#area{
-	height:100%;
-	overflow:hidden;
-	text-align:center;
-	display:relative;
-}
 </style>
-<link rel="stylesheet" type="text/css" href="/css/style.css">
+<!-- <link rel="stylesheet" type="text/css" href="/css/style.css"> -->
 <!-- include libraries(jQuery, bootstrap) -->
 <link
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css"
@@ -67,8 +85,7 @@ td a:hover:not(.current) {
 	src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
 <script
 	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
-<script
-	src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+
 <!-- include summernote css/js-->
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
@@ -79,59 +96,41 @@ td a:hover:not(.current) {
 	$(document)
 			.ready(
 					function() {
-						//여기 아래 부분
 						$('#summernote')
 								.summernote(
 										{
-											height : 500,// 에디터 높이
-											width : 700,
-											focus : true, // 에디터 로딩후 포커스를 맞출지 여부
-											lang : "ko-KR", // 한글 설정
-											placeholder : '내용',
-											disableResizeEditor : true, // 크기 조절 기능 삭제
+											placeholder : '내용을 입력해주세요.',
+											height : 500,
+											minHeight : 500,
+											maxHeight : 500,
+											lang : 'ko-KR',
+
 											toolbar : [
-													[ 'fontname',
-															[ 'fontname' ] ],
-													[ 'fontsize',
-															[ 'fontsize' ] ],
+													[ 'style', [ 'style' ] ],
 													[
-															'style',
+															'font',
 															[
 																	'bold',
-																	'italic',
 																	'underline',
-																	'strikethrough',
 																	'clear' ] ],
-													[
-															'color',
-															[ 'forecolor',
-																	'color' ] ],
-													[ 'table', [ 'table' ] ],
+													[ 'color', [ 'color' ] ],
 													[
 															'para',
 															[ 'ul', 'ol',
 																	'paragraph' ] ],
-													[ 'height', [ 'height' ] ],
+													[ 'table', [ 'table' ] ],
 													[
 															'insert',
-															[ 'picture',
-																	'link',
+															[ 'link',
+																	'picture',
 																	'video' ] ],
 													[
 															'view',
 															[ 'fullscreen',
-																	'help' ] ] ],
-											fontNames : [ 'Arial',
-													'Arial Black',
-													'Comic Sans MS',
-													'Courier New', '맑은 고딕',
-													'궁서', '굴림체', '굴림', '돋움체',
-													'바탕체' ],
-											fontSizes : [ '8', '9', '10', '11',
-													'12', '14', '16', '18',
-													'20', '22', '24', '28',
-													'30', '36', '50', '72' ]
-										})
+																	'help' ] ] ]
+										});
+						$('p').css('margin-bottom', '0')
+						$('.note-resizebar').css('display', 'none');
 					});
 </script>
 
@@ -153,24 +152,23 @@ td a:hover:not(.current) {
 
 </head>
 <body>
+	<table>
 
-	<header>
-		<table>
-			<tr>
-				<th>
-				<td><a class="nav2" id="nav2"
-					href="boardNoticeList.do?board_num=0">공지게시판</a></td>
 
-				<th>
-				<td><a class="nav2" id="nav2"
-					href="boardFreeList.do?board_num=1">자유게시판</a></td>
+		<tr>
+			<td><a class="nav2" id="nav2"
+				href="boardNoticeList.do?board_num=0">공지게시판</a></td>
+		</tr>
+		<tr>
+			<td><a class="nav2" id="nav2"
+				href="boardFreeList.do?board_num=1">자유게시판</a></td>
+		</tr>
+		<tr>
+			<td><a class="nav2" id="nav2"
+				href="boardMarketList.do?board_num=2">마켓게시판</a></td>
+		</tr>
+	</table>
 
-				<th>
-				<td><a class="nav2" id="nav2"
-					href="boardMarketList.do?board_num=2">마켓게시판</a></td>
-			</tr>
-		</table>
-	</header>
 	<form
 		action="postWritePro.do?board_num=${board_num}&pageNum=${pageNum}&post_num=${post_num + 1}"
 		method="post">
@@ -178,22 +176,26 @@ td a:hover:not(.current) {
 			value="${board_num}"> <input type="text" name="pageNum"
 			id="pagenNum" value="${pageNum }"> <input type="text"
 			name="post_num" id="post_num" value="${post_num +1}">
-
-
-	
+		<caption>
 			<h2>게시판 글쓰기</h2>
+		</caption>
+		<td>작성자</td>
+		<td><input type="text" name="user_id" required="required"></td>
 
-
-			작성자<input type="text" name="user_id" required="required"> 
-			제목<input type="text" name="post_name" required="required">
-			<textarea id="summernote" name="content" required="required">
+		제목 <input type="text" name="post_name" required="required">
+		<textarea id="summernote" name="post_cont" required="required">
 		</textarea>
 
-<fieldset>
-		<input type="button" onclick="history.back();" value="취소">
-		<input type="submit" value="확인">
-</fieldset>
+		<div>
+			<input type="button" onclick="history.back();" value="취소"> <input
+				type="submit" value="확인">
+		</div>
+
 
 	</form>
+<script src="/js/jquery-3.3.1.min.js"></script>
+	<script src="/js/popper.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/main.js"></script>
 </body>
 </html>
