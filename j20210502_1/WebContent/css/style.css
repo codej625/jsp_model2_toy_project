@@ -13,6 +13,7 @@ body {
 	background-color: #F8FCFE;
 	overflow: hidden;
 	border-radius: 10px;
+	position:fixed;
 }
 
 #cF {
