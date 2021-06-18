@@ -15,8 +15,11 @@ public class Camp_InfoDto {
 	private String res_Id;
 	private String camp_Images;
 	private String camp_Desc;
+	private String camp_View1;
+	private String camp_View2;
+	private String camp_View3;
+	private String camp_Item;
 
-	
 	public int getCamp_Id() {
 		return camp_Id;
 	}
@@ -119,6 +122,38 @@ public class Camp_InfoDto {
 
 	public void setCamp_Desc(String camp_Desc) {
 		this.camp_Desc = camp_Desc;
+	}
+
+	public String getCamp_View1() {
+		return camp_View1;
+	}
+
+	public void setCamp_View1(String camp_View1) {
+		this.camp_View1 = camp_View1;
+	}
+
+	public String getCamp_View2() {
+		return camp_View2;
+	}
+
+	public void setCamp_View2(String camp_View2) {
+		this.camp_View2 = camp_View2;
+	}
+
+	public String getCamp_View3() {
+		return camp_View3;
+	}
+
+	public void setCamp_View3(String camp_View3) {
+		this.camp_View3 = camp_View3;
+	}
+
+	public String getCamp_Item() {
+		return camp_Item;
+	}
+
+	public void setCamp_Item(String camp_Item) {
+		this.camp_Item = camp_Item;
 	}
 
 }

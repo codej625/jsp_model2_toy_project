@@ -75,7 +75,7 @@ public class Controller extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		System.out.println("dd");
+		System.out.println("실행완료");
 		requestPro(request, response);
 	}
 
@@ -107,16 +107,23 @@ public class Controller extends HttpServlet {
 			throw new ServletException(e);
 		}
 //		Ajax String를 포함하고 있으면
-		if (command.contains("ajaxTest1")) {
-			//System.out.println("ajaxTest1 String->" + command); // /ch16/list.do
+		if (command.contains("ajaxIdCheck")) {
+			//System.out.println("ajaxIdCheck String->" + command); 
 //			text 있다면
-			String writer = (String) request.getAttribute("writer");
+			String idCheck = (String) request.getAttribute("idCheck");
 			//System.out.println("Controller writer->" + writer);
 			PrintWriter pw = response.getWriter();
-			pw.write(writer);
+			pw.write(idCheck);
 			// flush-> 버퍼있는걸 다올려라
 			pw.flush();
 
+		} else if(command.contains("ajaxEmailCheck")) {
+			String emailCheck = (String) request.getAttribute("emailCheck");
+			//System.out.println("Controller writer->" + writer);
+			PrintWriter pw = response.getWriter();
+			pw.write(emailCheck);
+			// flush-> 버퍼있는걸 다올려라
+			pw.flush();
 		} else { // 일반적인경우
 			RequestDispatcher dispatcher = request.getRequestDispatcher(view);
 			dispatcher.forward(request, response);

@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.wrapper {
+#wrapper {
 	display: grid;
 	grid-template-columns: repeat(30, 1fr);
 	grid-auto-rows: auto;
@@ -13,17 +13,6 @@
 	grid-row-end: 2;
 }
 
-#header {
-	width: 100%;
-	height: 200px;
-	border-radius: 5px;
-}
-
-#header img {
-	width: 100%;
-	height: 200px;
-}
-
 .box2 {
 	grid-column-start: 2;
 	grid-column-end: 19;
@@ -34,7 +23,7 @@
 .box2 img {
 	width: 100%;
 	height: 450px;
-	margin-top: 100px;
+	/* 	margin-top: 70px; */
 }
 
 .box3 {
@@ -44,26 +33,31 @@
 	grid-row-end: 3;
 }
 
+.box3 div {
+	width: 90%;
+	height: 100%;
+}
+
 .box3 table {
 	width: 80%;
 	height: 400px;
-	margin-top: 100px;
+	margin-top: 70px;
 	margin-left: 10%;
 }
 
-#th {
+#thTop {
 	border-top: 3px solid #e55450;
 }
 
-#td {
+#tdTop {
 	border-top: 3px solid black;
 }
 
-#th2 {
+#thBottom {
 	border-bottom: 3px solid black;
 }
 
-#td2 {
+#tdBottom {
 	border-bottom: 3px solid black;
 }
 
@@ -79,11 +73,6 @@
 	font-size: 20px;
 }
 
-.box3 div {
-	width: 90%;
-	height: 60.05px;
-}
-
 .box4 {
 	grid-column-start: 20;
 	grid-column-end: 30;
@@ -91,13 +80,11 @@
 	grid-row-end: 4;
 }
 
-.res {
+#resButtonBox {
 	width: 100%;
 	height: 100%;
 	border: 1px solid black;
 	text-align: center;
-	border: 1px solid black;
-	border: 1px solid black;
 }
 
 .box5 {
@@ -107,9 +94,9 @@
 	grid-row-end: 5;
 }
 
-.one {
+.box5 div {
 	width: 100%;
-	height: 90px;
+	height: 70px;
 }
 
 .box6 {
@@ -119,9 +106,50 @@
 	grid-row-end: 6;
 }
 
+box6 div {
+	height: 100px;
+	width: 100%;
+}
+
+.images1 {
+	float: left;
+	border: 1px solid black;
+	width: 30%;
+	height: 300px;
+	margin: 2% 1.56% 5% 1.56%;
+}
+
 .box7 {
 	grid-column-start: 1;
 	grid-column-end: 31;
 	grid-row-start: 6;
 	grid-row-end: 7;
+}
+
+.box7 div {
+	width: 100%;
+	height: 100%;
+}
+
+.images2 {
+	float: left;
+	border: 1px solid black;
+	width: 40%;
+	height: 90px;
+	margin: 2% 1.56% 5% 1.56%;
+}
+
+.box8 {
+	grid-column-start: 1;
+	grid-column-end: 31;
+	grid-row-start: 7;
+	grid-row-end: 8;
+}
+
+.notice {
+	margin-top: 5%;
+}
+
+.desc {
+	margin-left: 1%;
 }

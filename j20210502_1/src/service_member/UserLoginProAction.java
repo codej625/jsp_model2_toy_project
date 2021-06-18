@@ -18,6 +18,9 @@ public class UserLoginProAction implements CommandProcess {
 			String user_id = request.getParameter("user_id");
 			String user_pw = request.getParameter("user_pw");
 			
+			System.out.println("Login id->" + user_id);
+			System.out.println("Login pw->" + user_pw);
+			
 			MemberDao md = MemberDao.getInstance();
 			int result = md.check(user_id,user_pw);
 			int user_code = md.ChkUserCode(user_id);
@@ -27,7 +30,7 @@ public class UserLoginProAction implements CommandProcess {
 			if(result>0) {
 				request.getSession().setAttribute("sessionID", user_id);
 				request.getSession().setAttribute("sessionCODE", user_code);
-				System.out.println("Login user_code->" + user_code);
+//				System.out.println("Login user_code->" + user_code);
 			}
 			
 		} catch (Exception e) {

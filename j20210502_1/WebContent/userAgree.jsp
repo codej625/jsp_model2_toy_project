@@ -3,17 +3,24 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="css/theme.css" rel="stylesheet" />
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>회원가입 약관동의</title>
+
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap"
+	rel="stylesheet">
 <style type="text/css">
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box
+	font-family: 'Roboto Condensed';
+
 }
 
 body {
-	background-color: #f7f7f7;
+	background-color: #495057;
 }
 
 ul>li {
@@ -36,8 +43,8 @@ a {
 }
 
 ul.join_box {
-	border: 1px solid #ddd;
-	background-color: #fff;
+	border: none;
+	background-color: #495057;
 }
 
 .checkBox, .checkBox>ul {
@@ -52,7 +59,7 @@ ul.join_box {
 	width: 85%;
 	padding: 15px;
 	font-weight: 600;
-	color: #888;
+	color: white;
 }
 
 .checkBox>ul>li:nth-child(2) {
@@ -63,11 +70,11 @@ ul.join_box {
 }
 
 .checkBox textarea {
-	width: 96%;
-	height: 90px;
+	width: 97%;
+	height: 110px;
 	margin: 0 2%;
-	background-color: #f7f7f7;
-	color: #888;
+	background-color: white;
+	color: #white;
 	border: none;
 }
 
@@ -91,13 +98,17 @@ ul.join_box {
 }
 
 .fpmgBt1 {
-	background-color: #fff;
-	color: #888
+	background-color: lightsalmon;
+	color: white;
+	text-align: center;
+	margin: auto;
 }
 
 .fpmgBt2 {
-	background-color: lightsalmon;
-	color: #fff
+	background-color: #2196f3;
+	color: white;
+	text-align: center;
+	margin: auto;
 }
 </style>
 
@@ -107,7 +118,7 @@ ul.join_box {
 		<ul class="join_box">
 			<li class="checkBox check01">
 				<ul class="clearfix">
-					<li>이용약관, 개인정보 수집 및 이용, 위치정보 이용약관, 프로모션 안내 메일 수신에 모두
+					<li  style="color:lightsalmon;">이용약관, 개인정보 수집 및 이용, 위치정보 이용약관, 프로모션 안내 메일 수신에 모두
 						동의합니다.</li>
 					<li class="checkAllBtn"></li>
 				</ul>
@@ -149,8 +160,8 @@ ul.join_box {
 			</li>
 		</ul>
 		<ul class="footBtwrap clearfix">
-			<li><button type="reset" class="fpmgBt1" onclick="javascript:history.back();" >비동의</button></li>
-			<li><button type="submit" class="fpmgBt2">동의</button></li>
+			<li><button type="reset" class="fpmgBt1" onclick="javascript:history.back();" style="width:50%;" >비동의</button></li>
+			<li><button type="submit" class="fpmgBt2"  style="width:50%;">동의</button></li>
 		</ul>
 	</form>
 

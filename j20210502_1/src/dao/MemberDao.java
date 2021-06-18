@@ -37,12 +37,12 @@ public class MemberDao {
 		}
 		return conn;
 	}
-	
+
 	// 회원가입
 	public int insert(Member member) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+
 		int result = 0;
 		String sql = "Insert into USER_INFO (USER_ID,USER_PW,USER_NAME,USER_TEL,USER_ADDR,USER_EMAIL,USER_GENDER, USER_REG) values(?,?,?,?,?,?,?,sysdate)";
 		try {
@@ -64,16 +64,16 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
+
 	// 로그인
-	public int check(String user_id, String user_pw) throws SQLException {	
+	public int check(String user_id, String user_pw) throws SQLException {
 		Member member = new Member();
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		int result = 0;
-		String sql = "select user_pw from user_info where user_id=?";
+		String sql = "select user_pw from user_info where user_id=? and user_drop=0";
 		try {
 			conn = getConnection();
 			pstmt = conn.prepareStatement(sql);
@@ -100,7 +100,7 @@ public class MemberDao {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		
+
 		String sql = "select user_id,user_pw,user_name,user_tel,user_addr,user_email,user_gender from user_info where user_id =?";
 		try {
 			conn = getConnection();
@@ -126,11 +126,43 @@ public class MemberDao {
 		return member;
 	}
 
+	// 이메일 중복 확인
+	public Member selectEmail(String user_email) throws SQLException {
+		Member member = new Member();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from user_info where user_email =?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, user_email);
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+				member.setUser_id(rs.getString(1));
+				member.setUser_pw(rs.getString(2));
+				member.setUser_name(rs.getString(3));
+				member.setUser_tel(rs.getString(4));
+				member.setUser_addr(rs.getString(5));
+				member.setUser_email(rs.getString(6));
+				member.setUser_gender(rs.getString(7));
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+			if (rs != null) rs.close();
+		}
+		return member;
+	}
+
 	// 회원정보 수정
 	public int update(Member member) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+
 		int result = 0;
 		String sql = "update user_info set user_pw=?,user_name=?,user_tel=?,user_addr=?,user_email=?,user_gender=?, user_pwd=sysdate where user_id=? ";
 		try {
@@ -152,24 +184,56 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
-	// 회원삭제
+
+	// 회원 탈퇴여부 변경
+	public int deleteUpdate(String user_id) throws SQLException {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		String sql = "update user_info set user_drop=0 where user_id=?";
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,user_id);
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}finally {
+			if (pstmt != null) pstmt.close();
+			if (conn != null) conn.close();
+		}
+		return result;
+	}
+
+	// 회원탈퇴
 	public int delete(String user_id, String user_pw) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
-		
+		ResultSet rs = null;
 		int result = 0;
-		String sql = "delete from user_info where user_id=?"; 
-		 
-		try { 
+		String sql = "select user_pw from user_info where user_id=?";
+		String sql1 = "update user_info set user_drop=1 where user_id=?";
+
+		try {
+			String dbPw = "";
 			conn  = getConnection();
-			
-			result = check(user_id, user_pw);
-			if (result != 1) return result;
-			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user_id);
-			result = pstmt.executeUpdate();
+			rs = pstmt.executeQuery();
+			if(rs.next()) {
+				dbPw = rs.getString(1);
+				if(dbPw.equals(user_pw)) {
+					rs.close();
+					pstmt.close();
+
+					pstmt = conn.prepareStatement(sql1);
+					pstmt.setString(1, user_id);
+					result = pstmt.executeUpdate();
+				}
+			}else {
+				result = -1;
+			}
 		} catch(Exception e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -178,38 +242,13 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
-	// 아이디 중복체크
-	public int IdDupl(String user_id) throws SQLException {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		int result = 0;
-		String sql = "select * from user_info where user_id=?";
-		try {
-			conn  = getConnection();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, user_id);
-			rs = pstmt.executeQuery();
-			if ( rs.next()) result = 1; // 아이디 중복: 1, 아이디 생성 가능: 0
-			else result = 0;
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		} finally {
-			if (pstmt != null) pstmt.close();
-			if (conn != null) conn.close();
-			if (rs != null) rs.close();
-		}
-		return result;
-	}
-	
+
 	// 이메일 중복체크
 		public int EmailDupl(String user_email) throws SQLException {
 			Connection conn = null;
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
-			
+
 			int result = 0;
 			String sql = "select * from user_info where user_email=?";
 			try {
@@ -229,13 +268,13 @@ public class MemberDao {
 			}
 			return result;
 		}
-	
+
 	// 회원정보 TotalCnt
 	public int getTotalCnt() throws SQLException {
 		Connection conn = null;
 	    Statement stmt = null;
 	    ResultSet rs = null;
-	    
+
 	    int tot = 0;
 	    String sql = "select count(*) from user_info";
 	    try {
@@ -259,7 +298,7 @@ public class MemberDao {
 	    Connection conn = null;
 	    PreparedStatement pstmt = null;
 	    ResultSet rs = null;
-	    
+
 	    String sql = " select * from ( select rownum rn, a.* from ( select * from user_info) a ) where rn between ? and ? ";
 	    try {
 	    	conn = getConnection();
@@ -291,13 +330,13 @@ public class MemberDao {
 	    }
 	    return list;
 	}
-	
+
 	// 아이디 찾기
 	public String findId(String user_name, String user_email) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		 
+
 		//int result = 0;
 		String user_id = null;
 		String sql = "select user_id from user_info where user_name=? and user_email=?";
@@ -307,7 +346,7 @@ public class MemberDao {
 			pstmt.setString(1, user_name);
 			pstmt.setString(2, user_email);
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				user_id = rs.getString("user_id");
 			} else user_id = null;
@@ -320,7 +359,7 @@ public class MemberDao {
 		}
 		return user_id;
 	}
-	
+
 	// 비밀번호 찾기
 	public int findPw(String user_id, String user_email) throws SQLException {
 		Connection conn = null;
@@ -328,23 +367,23 @@ public class MemberDao {
 		PreparedStatement pstmt2 = null;
 		ResultSet rs1 = null;
 		ResultSet rs2 = null;
-		 
+
 		int result = 0;
 		//String user_pw = null;
 		String sql1 = "select user_pw from user_info where user_id=? and user_email=?";
 		String sql2 = "update user_info set user_pw='1234' where user_id=? and user_email=?";
 		try {
 			conn  = getConnection();
-			
+
 			pstmt1 = conn.prepareStatement(sql1);
 			pstmt1.setString(1, user_id);
 			pstmt1.setString(2, user_email);
 			rs1 = pstmt1.executeQuery();
-			
+
 			if(rs1.next()) {
 				//user_pw = rs1.getString("user_pw");
 				result = 1;
-				
+
 				pstmt2 = conn.prepareStatement(sql2);
 				pstmt2.setString(1, user_id);
 				pstmt2.setString(2, user_email);
@@ -363,13 +402,13 @@ public class MemberDao {
 		}
 		return result;
 	}
-	
+
 	// 회원종류 선별
 	public int ChkUserCode(String user_id) throws SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		 
+
 		//int result = 0;
 		int user_code = 0;
 		String sql = "select user_code from user_info where user_id=?";
@@ -378,7 +417,7 @@ public class MemberDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, user_id);
 			rs = pstmt.executeQuery();
-			
+
 			if(rs.next()) {
 				user_code = rs.getInt("user_code");
 			} else user_code = -1;
