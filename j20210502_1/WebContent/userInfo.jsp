@@ -28,11 +28,8 @@ body {
 	padding-top: 100px;
 	background: #f9f9fb;
 }
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 03_team
 </style>
 </head>
 <body>
@@ -41,7 +38,6 @@ body {
 	<!-- ===============================================-->
 	<!--    Main Content-->
 	<!-- ===============================================-->
-<<<<<<< HEAD
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
 		data-navbar-on-scroll="data-navbar-on-scroll">
@@ -87,54 +83,6 @@ body {
 		</div>
 	</nav>
 </header>
-=======
-	<header>
-		<nav
-			class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block"
-			data-navbar-on-scroll="data-navbar-on-scroll">
-			<div class="container">
-				<a class="navbar-brand d-inline-flex" href="index.jsp"><span
-					class="text-light fs-2 fw-bold ms-2"><img
-						src="${pageContext.request.contextPath}/img/gallery/logo.png"
-						style="width: 100px; height: 100px;" alt=""></span></a>
-				<button class="navbar-toggler collapsed" type="button"
-					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-					aria-controls="navbarSupportedContent" aria-expanded="false"
-					aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon"></span>
-				</button>
-				<div
-					class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
-					id="navbarSupportedContent">
-					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-						<c:if test="${sessionID == null }">
-							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userLoginForm.do">JUMP IN(마이페이지)</a></li>
-						</c:if>
-						<c:if test="${sessionID != null }">
-							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
-						</c:if>
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
-						<c:if test="${sessionID == null }">
-							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userLoginForm.do">로그인</a></li>
-							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userAgree.do">회원가입</a></li>
-						</c:if>
-						<c:if test="${sessionID != null }">
-							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userLogoutPro.do">로그아웃</a></li>
-						</c:if>
-					</ul>
-				</div>
-			</div>
-		</nav>
-	</header>
->>>>>>> 03_team
 
 
 	<div class="container">
@@ -212,21 +160,6 @@ body {
 					</div>
 				</div>
 			</section>
-<<<<<<< HEAD
-=======
-		</div>
-	</div>
-
-
-	<%-- 로그인 후 페이지 --%>
-	<div>
-
-
-
-		<div>
-			<input type="button" value="회원탈퇴"
-				onclick="location.href='userDeleteForm.do?user_id=${sessionID}'">
->>>>>>> 03_team
 		</div>
 	</div>
 
@@ -237,39 +170,21 @@ body {
 	
 		
 		<div>
-<<<<<<< HEAD
 			<input type="button" value="회원탈퇴"
 				onclick="location.href='userDeleteForm.do?user_id=${sessionID}'">
 		</div>
 		<div>
-=======
->>>>>>> 03_team
 			<input style="display: none;" type="text" name="user_code_chk"
 				value="${sessionCODE}">
 		</div>
 		
 
 	</div>
-<<<<<<< HEAD
 	<c:if test="${sessionCODE != 2}">
 		<button type="button"
 			onclick="location.href='userList.do?user_id=${sessionID}'">모든회원정보</button>
 	</c:if>
 
-=======
-	<div>
-		<c:if test="${sessionCODE != 2}">
-			<button type="button"
-				onclick="location.href='userList.do?user_id=${sessionID}'">모든회원정보</button>
-		</c:if>
-	</div>
-	<div>
-		<c:if test="${sessionCODE != 2}">
-			<button type="button"
-				onclick="location.href='campList.do?user_id=${sessionID}'">캠프장리스트</button>
-		</c:if>
-	</div>
->>>>>>> 03_team
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/js/popper.min.js"></script>
 	<script src="/js/bootstrap.min.js"></script>

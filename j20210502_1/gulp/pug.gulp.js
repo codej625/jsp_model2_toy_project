@@ -25,7 +25,7 @@ const locals = {
 /*=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 |  Pug compiling | middleware
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-*/
-const compilePug = (req, res, next) => {
+const compilePug = (req, _res, next) => {
   const parsed = url.parse(req.url);
 
   const mkdir = (dir) => {

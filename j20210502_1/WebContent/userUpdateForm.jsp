@@ -213,8 +213,8 @@ body {
 											name="user_gender" required="required"
 											value="${member.user_gender }"></td>
 									</tr>
-								 --%>
-								</table>
+								
+								</table> --%>
 							</fieldset>
 							<hr>
 							<div class="form-group">

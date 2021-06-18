@@ -49,12 +49,7 @@
 	href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;700&amp;display=swap"
 	rel="stylesheet">
 
-<<<<<<< HEAD
-<!-- COMMIT 되라 PUSH 되라!!
-제발 되라 깃아 -->
-=======
-<!-- COMMIT 되라 PUSH 되라!! -->
->>>>>>> 03_team
+
 
 <!-- ===============================================-->
 <!--    Stylesheets-->
@@ -100,8 +95,6 @@
 							href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
 						<li class="nav-item px-2"><a class="nav-link fw-bold"
 							href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
-						</ul>
-					<aside>
 						<c:if test="${sessionID == null }">
 							<li class="nav-item px-2"><a class="nav-link fw-bold"
 								href="userLoginForm.do">로그인</a></li>
@@ -112,13 +105,13 @@
 							<li class="nav-item px-2"><a class="nav-link fw-bold"
 								href="userLogoutPro.do">로그아웃</a></li>
 						</c:if>
-					</aside>
+					</ul>
 				</div>
 			</div>
 		</nav>
 		<section class="py-0" id="header">
 			<div class="bg-holder"
-				style="background-image: url(img/gallery/header-bg.jpg); background-position: center; background-size: cover;">
+				style="background-image: url(img/gallery/header-bg.jpg); background-position: center; background-size: contain;">
 			</div>
 			<!--/.bg-holder-->
 
@@ -129,13 +122,14 @@
 							<br class="d-none d-xxl-block" />
 						</h1>
 						<div class="input-group"
-							style="position: relative; top: 40%; left: 50%; background-color: transparent; ">
+							style="position: relative; top: 50%; left: 50%; border: none; background-color: transparent;">
 							<label for="colFormLabel"></label><input
 								class="rounded-end-0 form-control" id="colFormLabel" type="text"
 								placeholder="캠핑장 검색" />
 							<div class="col-4 col-lg-3"
 								style="text-align: center; border: none; background-color: transparent;">
-								<button class="btn btn-primary rounded-start-0" type="submit"style="background-color:lightsalmon;">검색</button>
+								<button class="btn btn-primary rounded-start-0" type="submit"
+									style="background-color: lightsalmon;">검색</button>
 							</div>
 						</div>
 					</div>
