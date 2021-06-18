@@ -66,17 +66,19 @@
 						</p>
 					</div>
 					<p>
-						<strong>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 편의시설</strong> :
+						<strong>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 예약</strong> :
+
+						<button
+							onclick="alert('예약 전 캠핑장 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지않습니다.')">
+							<a href="${camp_InfoDto.res_Id}" target="_blank">예약하기</a>
+						</button>
+
 					</p>
 					<p>
 						<img class="images2" alt="error"
 							src="images/${camp_InfoDto.camp_Item}.jpg"></img>
 					</p>
-					<p>
-						<a id="button"
-							onclick="alert('예약 전 캠핑장 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
-							href="${camp_InfoDto.res_Id}" target="_blank">예약하기</a>
-					</p>
+
 				</div>
 				<c:set var="startNum" value="${startNum - 1}" />
 			</c:forEach>
