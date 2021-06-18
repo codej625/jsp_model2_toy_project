@@ -22,19 +22,12 @@ table {
 	<h3>총 ${totCnt}개 캠핑장이 검색되었습니다.</h3>
 	<table class="table table-striped">
 		<tr>
-			<th class="col-md-1">캠핑장번호</th>
-			<th class="col-md-1">캠핑장이름</th>
-			<th class="col-md-1">전화번호</th>
-			<th class="col-md-1">주소</th>
+			<th>캠핑장번호</th>
+			<th>캠핑장이름</th>
+			<th>전화번호</th>
+			<th>주소</th>
 			<th>지역</th>
 			<th>유료/무료</th>
-			<th>예약링크</th>
-			<th class="col-md-10">캠핑장설명</th>
-			<th>캠핑장이미지</th>
-			<th>캠핑장전경1</th>
-			<th>캠핑장전경2</th>
-			<th>캠핑장전경3</th>
-			<th>편의시설</th>
 		</tr>
 		<c:if test="${totCnt > 0 }">
 			<c:forEach var="camp_InfoDto" items="${list}">
@@ -46,13 +39,6 @@ table {
 					<td>${camp_InfoDto.camp_Addr}</td>
 					<td>${camp_InfoDto.camp_Loc}</td>
 					<td>${camp_InfoDto.c_F}</td>
-					<td>${camp_InfoDto.res_Id}</td>
-					<td>${camp_InfoDto.camp_Desc}</td>
-					<td>${camp_InfoDto.camp_Images}</td>
-					<td>${camp_InfoDto.camp_View1}</td>
-					<td>${camp_InfoDto.camp_View2}</td>
-					<td>${camp_InfoDto.camp_View3}</td>
-					<td>${camp_InfoDto.camp_Item}</td>
 				</tr>
 				<c:set var="startNum" value="${startNum - 1 }" />
 			</c:forEach>

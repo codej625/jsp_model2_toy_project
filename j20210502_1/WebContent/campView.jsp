@@ -13,24 +13,24 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./campReview.js"></script>
 <title>VIEW</title>
-</head>
-
 </head>
 <body>
 	<div id="wrapper">
 		<div class="box1">
-			<div class="jumbotron">
-				<!-- <div class="jumbotron" style="background-color: transparent !important;"> -->
-				<h1>&nbsp;&nbsp;${camp_InfoDto.camp_Name}</h1>
-				<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;즐거운 캠핑 생활</p>
-				<hr>
+			<div class="header">
+				<br> <br>
+				<h1 class="h1">${camp_InfoDto.camp_Name}</h1>
+				<br>
+				<hr class="hr">
 			</div>
 		</div>
 		<div class="box2">
 			<img alt="error" src="images/${camp_InfoDto.camp_Images}.jpg">
 		</div>
 		<div class="box3">
+			<br>
 			<table>
 				<tr>
 					<th id="thTop">주소</th>
@@ -52,34 +52,51 @@
 		</div>
 		<div class="box4">
 			<div id="resButtonBox">
-				<a id="resButton"
-					onclick="alert('예약 전 캠핑장 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지 않습니다.')"
-					href="${camp_InfoDto.res_Id}" target="_blank">예약하기</a>
+				<button id="resButton"
+					style="font-size: 20px; width: 150pt; height: 30pt;"
+					onclick="alert('예약 전 캠핑장 현황 확인 부탁드립니다. Campro는 예약 링크만 제공하며 서비스는 제공하지않습니다.')">
+					<a href="${camp_InfoDto.res_Id}" target="_blank">예약하기</a>
+				</button>
 			</div>
 		</div>
 		<div class="box5">
-			<div></div>
+			<div>
+				<br>
+			</div>
 		</div>
 		<div class="box6">
-			<hr>
-			<h3>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 전경</h3>
-			<img class="images1" alt="error"
-				src="images/${camp_InfoDto.camp_View1}.jpg"> <img
-				class="images1" alt="error"
-				src="images/${camp_InfoDto.camp_View2}.jpg"> <img
-				class="images1" alt="error"
-				src="images/${camp_InfoDto.camp_View3}.jpg">
+			<div class="view">
+				<h3 class="h3">캠핑장 전경</h3>
+				<img class="images1" alt="error"
+					src="images/${camp_InfoDto.camp_View1}.jpg"> <img
+					class="images1" alt="error"
+					src="images/${camp_InfoDto.camp_View2}.jpg"> <img
+					class="images1" alt="error"
+					src="images/${camp_InfoDto.camp_View3}.jpg">
+			</div>
 		</div>
 		<div class="box7">
-			<h3>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 편의시설</h3>
-			<img class="images2" alt="error"
-				src="images/${camp_InfoDto.camp_Item}.jpg"></img>
+			<div class="item">
+				<h3 class="h3">캠핑장 편의시설</h3>
+				<br> <img class="images2" alt="error"
+					src="images/${camp_InfoDto.camp_Item}.jpg"></img>
+			</div>
 		</div>
-
 		<div class="box8">
-			<h3>&nbsp;&nbsp;&nbsp;&nbsp;캠핑장 상세 소개</h3>
-			<br>
-			<p class="desc">${camp_InfoDto.camp_Desc}</p>
+			<div class="desc">
+
+				<h3 class="h3">캠핑장 상세 소개</h3>
+				<br>
+				<div class="campDesc">
+					<p>${camp_InfoDto.camp_Desc}</p>
+				</div>
+			</div>
+		</div>
+		<div class="box9">
+			<div class="review">
+				<h3 class="h3">리뷰</h3>
+				<c:import url="campReview.jsp"></c:import>
+			</div>
 		</div>
 	</div>
 </body>
