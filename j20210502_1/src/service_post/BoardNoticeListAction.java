@@ -16,21 +16,18 @@ public class BoardNoticeListAction implements CommandProcess {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
+		
 		PostDao pd = PostDao.getInstance();
 		
-		
-		try {			
+		try {
 			int board_num = 0;
-			System.out.println("Let's start NoticeListAction~~");
+	
 			int totCnt  = pd.getTotalCnt(board_num);
-			String pageNum = request.getParameter("pageNum");
-			
+			String pageNum = request.getParameter("pageNum");	
 			if (pageNum==null || pageNum.equals("")) {	
 				pageNum = "1";	
 				}
-			
-			int currentPage = Integer.parseInt(pageNum);	
+			int currentPage = Integer.parseInt(pageNum);	//1
 			int pageSize  = 10, blockSize = 10;
 			// page = 2 -->  startRow = 11 , endRow = 20
 			// page = 3 -->  startRow = 21 , endRow = 30
@@ -38,12 +35,8 @@ public class BoardNoticeListAction implements CommandProcess {
 			int endRow   = startRow + pageSize - 1;           // start -> 10
 			int startNum = totCnt - startRow + 1;             //21 - 1 = 20
 			
-			System.out.println("startRow-->" + startRow);
-			System.out.println("endRow-->" + endRow);
-			System.out.println("startNum-->" + startNum);
-			
 			List<Post> list = pd.list(startRow, endRow, board_num);	
-			int post_num = pd.getPostNum(board_num);
+			
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize); //21/10
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 			int endPage = startPage + blockSize -1;	
@@ -52,7 +45,6 @@ public class BoardNoticeListAction implements CommandProcess {
 			
 			request.setAttribute("board_num", board_num);
 			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("post_num", post_num);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
@@ -61,11 +53,8 @@ public class BoardNoticeListAction implements CommandProcess {
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);
 			request.setAttribute("endPage", endPage);
-			 
+					 
 			System.out.println("-----------------------------------------------");  // /ch16/list.do
-			System.out.println("Board Num -->" + board_num);
-			System.out.println("post_num-->" + post_num);
-			System.out.println("pageNum-->" + pageNum);
 			System.out.println("startNum-->" + startNum);  // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do
 			System.out.println("currentPage-->" + currentPage);  // /ch16/list.do

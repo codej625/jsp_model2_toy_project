@@ -20,14 +20,14 @@ td {
 				<table border="1">
 						<caption>
 								<h2>문의사항</h2>
-								<%--        <input type="text" name="board_num" value="${board_num }"> --%>
+								<%-- 				<input type="text" name="board_num" value="${board_num }"> --%>
 						</caption>
-						<%--      <input type="text" name="user_id" value="${user_id }"> --%>
-						<%--      <input type="text" name="post_num" value="${post_num }"> --%>
-						<%--      <input type="text" name="pageNum" value="${pageNum }"> --%>
-						<%--      re<input type="text" name="post_re" value="${post_re }"> --%>
-						<%--      st<input type="text" name="post_restep" value="${post_restep }"> --%>
-						<%--      lv<input type="text" name="post_lv" value="${post_lv }"> --%>
+						<%-- 			<input type="text" name="user_id" value="${user_id }"> --%>
+						<%-- 			<input type="text" name="post_num" value="${post_num }"> --%>
+						<%-- 			<input type="text" name="pageNum" value="${pageNum }"> --%>
+						<%-- 			re<input type="text" name="post_re" value="${post_re }"> --%>
+						<%-- 			st<input type="text" name="post_restep" value="${post_restep }"> --%>
+						<%-- 			lv<input type="text" name="post_lv" value="${post_lv }"> --%>
 						<tr>
 								<td>게시글번호</td>
 								<td>${post_num +1 }</td>

@@ -107,52 +107,81 @@ body {
 						</div>
 						<nav class="side-menu">
 							<ul class="nav">
-								<li><a href="userInfo.jsp"><span class="fa fa-user"></span>
+								<li class="active"><a href="#"><span class="fa fa-user"></span>
 										사용자 정보</a></li>
-								<li class="active"><a href="userUpdateForm.jsp"><span
-										class="fa fa-cog"></span> 사용자 정보수정</a></li>
-								<li><a href="#"><span class="fa fa-credit-card"></span>
-										캠핑장 결제 내역</a></li>
+<!-- 								<li><a href="userUpdateForm.jsp"><span -->
+<!-- 										class="fa fa-cog"></span> 사용자 정보수정</a></li> -->
 								<li><a href="#"><span class="fa fa-envelope"></span> 문의
 										내역</a></li>
+								<li><a href="#"><span class="fa fa-envelope"></span> 내가 쓴글
+								</a></li>
+								<c:if test="${sessionCODE != 2}">
+								<li><a href="userList.do?user_id=${sessionID}"><span
+										class="fa fa-cog"></span> 모든사용자 정보</a></li></c:if>
 							</ul>
 						</nav>
 					</div>
 					<div class="content-panel">
-						<form class="form-horizontal" action="userUpdatePro.do"
-							method="post" onsubmit="return chk()">
+						<form class="form-horizontal" action="userUpdatePro.do" method="post" name="frm" onsubmit="return chk()">
 							<fieldset class="fieldset">
 								<h3 class="fieldset-title">회원정보 수정</h3>
 
 								<div class="form-group">
 									<label class="col-md-2 col-sm-3 col-xs-12 control-label">아이디</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="text" name="user_id" class="form-control" value="?user_id=${sessionID }" readonly/>
+										<input type="text" name="user_id" class="form-control" value="${member.user_id }" readonly/>
 									</div>
 								</div>
 							</fieldset>
 							<fieldset class="fieldset">
 
 								<div class="form-group">
+									<label class="col-md-2  col-sm-3 col-xs-12 control-label">현재비밀번호</label>
+									<div class="col-md-10 col-sm-9 col-xs-12">
+										<input type="password" class="form-control" name="cur_pw" required="required">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2  col-sm-3 col-xs-12 control-label">새로운 비밀번호</label>
+									<div class="col-md-10 col-sm-9 col-xs-12">
+										<input type="password" class="form-control" name="new_pw" required="required">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2  col-sm-3 col-xs-12 control-label">새로운 비밀번호 재입력</label>
+									<div class="col-md-10 col-sm-9 col-xs-12">
+										<input type="password" class="form-control" name="new_pw2" required="required">
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-md-2  col-sm-3 col-xs-12 control-label">이름</label>
+									<div class="col-md-10 col-sm-9 col-xs-12">
+										<input type="text" class="form-control" name="user_name" value="${member.user_name }" required="required">
+									</div>
+								</div>
+								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">이메일</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="email" class="form-control" value="#사용자EMAIL">
+										<input type="email" class="form-control" name="user_email" value="${member.user_email }" required="required">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">전화번호</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="text" class="form-control" value="#사용자 전화번호">
+										<input type="tel" class="form-control" name="user_tel" required="required"
+													pattern="\d{2,3}-\d{3,4}-\d{4}" placeholder="xxx-xxxx-xxxx"
+													title="2,3자리-3,4자리-4자리" value="${member.user_tel }">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">사용자
 										주소</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="url" class="form-control" value="#사용자 주소">
+										<input type="text" class="form-control" name="user_addr" value="${member.user_addr }" required="required">
 									</div>
 								</div>
 
+<<<<<<< HEAD
 								<%-- <table>
 								
 									<div class="form-group">
@@ -215,14 +244,19 @@ body {
 									</tr>
 								
 								</table> --%>
+=======
+								</table>
+>>>>>>> 01_team
 							</fieldset>
 							<hr>
 							<div class="form-group">
 								<div
 									class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-									<input class="btn btn-primary" type="submit" value="#유저 업데이트">
+									<input class="btn btn-primary" type="submit" value="회원정보 수정">
+<%-- 									<input class="btn btn-primary" type="button" value="회원탈퇴" onclick="location.href='userDeleteForm.do?user_id=${sessionID}'"> --%>
 								</div>
 							</div>
+							
 						</form>
 					</div>
 				</div>

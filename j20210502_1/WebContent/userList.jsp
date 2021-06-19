@@ -41,6 +41,7 @@ table {
 		<input type="button" value="메인페이지" onclick="location.href='userInfo.do'">
 		<table border="1">
 				<tr>
+<<<<<<< HEAD
 						<th>사용자ID</th>
 						<th>회원종류</th>
 						<th>비밀번호</th>
@@ -52,6 +53,27 @@ table {
 						<th>가입일</th>
 						<th>회원정보 수정일</th>
 						<th>탈퇴여부</th>
+=======
+					<td>${member.user_id }</td>
+					<td>${member.user_code }</td>
+					<td>${member.user_pw }</td>
+					<td>${member.user_name }</td>
+					<td>${member.user_tel }</td>
+					<td>${member.user_addr }</td>
+					<td>${member.user_email }</td>
+					<td>${member.user_gender }</td>
+					<td>${member.user_reg }</td>
+					<td>${member.user_pwd }</td>
+					<td><c:choose>
+                    		<c:when test="${member.user_drop == 0 }">사용중</c:when>
+                  		</c:choose>
+                  		<c:choose>
+                     		<c:when test="${member.user_drop == 1 }">사용정지</c:when>
+                  		</c:choose>
+               			<c:if test="${member.user_drop == 1 }">
+               				<input type="button" value="복구" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'">
+               			</c:if></td>
+>>>>>>> 01_team
 				</tr>
 				<c:if test="${totCnt > 0 }">
 						<c:forEach var="member" items="${list }">
