@@ -102,13 +102,20 @@ body {
 							<ul class="nav">
 								<li class="active"><a href="#"><span class="fa fa-user"></span>
 										사용자 정보</a></li>
-								<li><a href="userUpdateForm.jsp"><span
-										class="fa fa-cog"></span> 사용자 정보수정</a></li>
-								<li><a href="#"><span class="fa fa-credit-card"></span>
-										캠핑장 결제 내역</a></li>
-								<li><a href="#"><span class="fa fa-envelope"></span> 문의
-										내역</a></li>
+<!-- 								<li><a href="userUpdateForm.jsp"><span -->
+<!-- 										class="fa fa-cog"></span> 사용자 정보수정</a></li> -->
+								<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span> 문의내역</a></li>
+								<li><a href="userWriteList.do?user_id=${sessionID}"><span class="fa fa-envelope"></span> 내가 쓴글
+								</a></li>
+								<c:if test="${sessionCODE != 2}">
+								<li><a href="userList.do?user_id=${sessionID}"><span
+										class="fa fa-cog"></span> 모든사용자 정보</a></li></c:if>
 							</ul>
+							
+<%-- 							<c:if test="${sessionCODE != 2}"> --%>
+<!-- 		<button type="button" -->
+<%-- 			onclick="location.href='userList.do?user_id=${sessionID}'">모든회원정보</button> --%>
+<%-- 	</c:if> --%>
 						</nav>
 					</div>
 					<div class="content-panel">
@@ -123,7 +130,7 @@ body {
 									<label class="col-md-2 col-sm-3 col-xs-12 control-label">사용자
 										이름</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="text" class="form-control" value="#유저ID">
+										<input type="text" class="form-control" value="${member.user_name }" readonly="readonly">
 									</div>
 								</div>
 							</fieldset>
@@ -132,20 +139,20 @@ body {
 								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">이메일</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="email" class="form-control" value="#사용자EMAIL">
+										<input type="email" class="form-control" value="${member.user_email }" readonly="readonly">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">전화번호</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="text" class="form-control" value="#사용자 전화번호">
+										<input type="text" class="form-control" value="${member.user_tel }" readonly="readonly">
 									</div>
 								</div>
 								<div class="form-group">
 									<label class="col-md-2  col-sm-3 col-xs-12 control-label">사용자
 										주소</label>
 									<div class="col-md-10 col-sm-9 col-xs-12">
-										<input type="url" class="form-control" value="#사용자 주소">
+										<input type="url" class="form-control" value="${member.user_addr }" readonly="readonly">
 									</div>
 								</div>
 							</fieldset>
@@ -153,7 +160,8 @@ body {
 							<div class="form-group">
 								<div
 									class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-									<input class="btn btn-primary" type="submit" value="#유저 업데이트">
+									<input class="btn btn-primary" type="button" value="회원정보 수정" onclick="location.href='userUpdateForm.do?user_id=${sessionID}'">
+									<input class="btn btn-primary" type="button" value="회원탈퇴" onclick="location.href='userDeleteForm.do?user_id=${sessionID}'">
 								</div>
 							</div>
 						</form>
@@ -166,24 +174,7 @@ body {
 
 	<%-- 로그인 후 페이지 --%>
 	<div>
-
-	
-		
-		<div>
-			<input type="button" value="회원탈퇴"
-				onclick="location.href='userDeleteForm.do?user_id=${sessionID}'">
-		</div>
-		<div>
-			<input style="display: none;" type="text" name="user_code_chk"
-				value="${sessionCODE}">
-		</div>
-		
-
 	</div>
-	<c:if test="${sessionCODE != 2}">
-		<button type="button"
-			onclick="location.href='userList.do?user_id=${sessionID}'">모든회원정보</button>
-	</c:if>
 
 	<script src="/js/jquery-3.3.1.min.js"></script>
 	<script src="/js/popper.min.js"></script>

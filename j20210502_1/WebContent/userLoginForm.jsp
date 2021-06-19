@@ -126,7 +126,7 @@
 	}
 
 	function confirmSave(checkbox) {
-		let isRemember;
+		var isRemember;
 
 		if (checkbox.checked) {
 			isRemember = confirm("이 PC에 로그인 정보를 저장하시겠습니까? PC방등의 공공장소에서는 개인정보가 유출될 수 있으니 주의해주십시오.");
@@ -137,8 +137,8 @@
 	}
 
 	function chk() {
-		if (chk().idcheck.checked)
-			saveLogin(chk().user_id.value);
+		if (frm.idcheck.checked)
+			saveLogin(frm.user_id.value);
 		else
 			saveLogin("");
 	}
@@ -154,21 +154,21 @@
 	}
 
 	function setsave(user_id, value, exdays) {
-		const exdate = new Date();
+		var exdate = new Date();
 		exdate.setDate(exdate.getDate() + exdays);
-		const cookieValue = escape(value)
+		var cookieValue = escape(value)
 				+ ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
 		document.cookie = user_id + "=" + cookieValue;
 	}
 
 	function getCookie(user_id) {
 		user_id = user_id + '=';
-		const cookieData = document.cookie;
-		let start = cookieData.indexOf(user_id);
-		let cookieValue = '';
+		var cookieData = document.cookie;
+		var start = cookieData.indexOf(user_id);
+		var cookieValue = '';
 		if (start !== -1) {
 			start += user_id.length;
-			let end = cookieData.indexOf(';', start);
+			var end = cookieData.indexOf(';', start);
 			if (end === -1)
 				end = cookieData.length;
 			cookieValue = cookieData.substring(start, end);
@@ -177,17 +177,17 @@
 	}
 
 	function deleteCookie(user_id) {
-		const expireDate = new Date();
+		var expireDate = new Date();
 		expireDate.setDate(expireDate.getDate() - 1);
 		document.cookie = user_id + "= " + "; expires="
 				+ expireDate.toUTCString();
 	}
 
 	function bodyOnload() {
-		const chk_id = document.getElementById('chk_id');
-		chk_id.user_id.value = getCookie("user_id");
-		if (chk_id.user_id.value !== "")
-			chk_id.chk_id.checked = true;
+		var chk_id = document.getElementById('chk_id');
+		form.user_id.value = getCookie("user_id");
+		if (form.user_id.value !== "")
+			form.chk_id.checked = true;
 	}
 </script>
 </body>

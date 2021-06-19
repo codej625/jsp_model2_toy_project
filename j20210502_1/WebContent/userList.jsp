@@ -44,8 +44,15 @@ table {
 					<td>${member.user_gender }</td>
 					<td>${member.user_reg }</td>
 					<td>${member.user_pwd }</td>
-					<td>${member.user_drop }
-					<input type="button" value="변경" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'"></td>
+					<td><c:choose>
+                    		<c:when test="${member.user_drop == 0 }">사용중</c:when>
+                  		</c:choose>
+                  		<c:choose>
+                     		<c:when test="${member.user_drop == 1 }">사용정지</c:when>
+                  		</c:choose>
+               			<c:if test="${member.user_drop == 1 }">
+               				<input type="button" value="복구" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'">
+               			</c:if></td>
 				</tr>
 				<c:set var="startNum" value="${startNum -1 }" />
 			</c:forEach>

@@ -134,7 +134,6 @@ td a:hover:not(.current) {
 			</table>
 			<table>
 				<tr>
-					<th scope="col">게시번호</th>
 					<th scope="col">번호</th>
 					<th scope="col">제목</th>
 					<th scope="col">작성자</th>
@@ -144,8 +143,7 @@ td a:hover:not(.current) {
 				<c:if test="${totCnt > 0 }">
 					<c:forEach var="post" items="${list}">
 						<tr>
-							<td>${board_num }</td>
-							<td>${post.post_num}</td>
+							<td>${startNum}</td>
 							<!--게시글 번호 대신하여 사용-->
 							<td class="left" width=200><a
 								href='postContent.do?board_num=${board_num}&post_num=${post.post_num}&pageNum=${currentPage}'>

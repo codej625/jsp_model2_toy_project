@@ -68,6 +68,7 @@
 		});
 	}
 </script>
+
 </head>
 <body>
 	<%-- 회원가입 폼 --%>
@@ -128,7 +129,16 @@
 					<input type="text"   id="emailCheckName"   readonly="readonly" style="width:100%; border: none; color: #ee7272;">
 				</td>
 			</tr>
-				</table>
+			<tr>
+				<td>성별</td>
+				<td>
+					<select required="required" style="width: 100px; height:30px;">
+					<option value="0">남자</option>
+					<option value="1">여자</option>
+					</select>
+				</td>
+			</tr>
+		</table>
 
 			<div class="btn_wrap">
 			<button type="submit"><a>회원가입</a></button>

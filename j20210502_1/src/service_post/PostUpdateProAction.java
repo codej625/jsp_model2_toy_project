@@ -10,6 +10,8 @@ import dao.Post;
 import dao.PostDao;
 import service_member.CommandProcess;
 
+
+
 public class PostUpdateProAction implements CommandProcess {
 
 	@Override
@@ -18,7 +20,7 @@ public class PostUpdateProAction implements CommandProcess {
 		try { 
 			request.setCharacterEncoding("utf-8"); 
 	        String pageNum = request.getParameter("pageNum");
-	        String user_id = request.getParameter("user_id");
+	//세션아이디로 사용?String user_id = request.getParameter("user_id"); 
 	        
 	        
 	        Post post = new Post();
@@ -35,13 +37,13 @@ public class PostUpdateProAction implements CommandProcess {
 		
 		
 			request.setAttribute("result", result);
-			request.setAttribute("post_num", post.getPost_num());
+			request.setAttribute("board_num",post.getBoard_num());
 			request.setAttribute("pageNum", pageNum);
 		} 
 		catch(Exception e) { 
 			System.out.println(e.getMessage()); 
 		}
-		return "post/postUpdatePro.jsp";	
+		return "/post/postUpdatePro.jsp";	
 	}
 
 }
