@@ -84,11 +84,11 @@
 					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 						<c:if test="${sessionID == null }">
 							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userLoginForm.do">JUMP IN(마이페이지)</a></li>
+								href="userLoginForm.do?">JUMP IN(마이페이지)</a></li>
 						</c:if>
 						<c:if test="${sessionID != null }">
 							<li class="nav-item px-2"><a class="nav-link fw-bold"
-								href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
+								href="userInfo.do?user_code=${sessionCODE }&user_id=${sessionID }">JUMP IN(마이페이지)</a></li>
 						</c:if>
 						<li class="nav-item px-2"><a class="nav-link fw-bold"
 							href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
@@ -110,7 +110,7 @@
 		</nav>
 		<section class="py-0" id="header">
 			<div class="bg-holder"
-				style="background-image: url(img/gallery/header-bg.jpg); background-position: center; background-size: contain;">
+				style="background-image: url(img/gallery/store-bg.jpg); background-position: center; background-size: contain;">
 			</div>
 			<!--/.bg-holder-->
 
