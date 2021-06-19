@@ -6,9 +6,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Member;
-import dao.MemberDao;
-
 public class UserDeleteFormAction implements CommandProcess {
 
 	@Override
