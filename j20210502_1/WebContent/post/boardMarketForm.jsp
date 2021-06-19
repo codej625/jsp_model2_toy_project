@@ -81,7 +81,7 @@ table {
 																<li><a href="boardNoticeList.do?board_num=0"><span class="fa"></span>공지게시판</a></li>
 																<li><a href="boardFreeList.do?board_num=1"><span class="fa"></span>자유게시판</a></li>
 																<li class="active"><a href="boardMarketList.do?board_num=2"><span class="fa"></span>마켓게시판</a></li>
-																<li><a href="#"><span class="fa"></span> 문의 내역 </a></li>
+																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span>나의 문의내역</a></li>
 														</ul>
 												</nav>
 										</div>

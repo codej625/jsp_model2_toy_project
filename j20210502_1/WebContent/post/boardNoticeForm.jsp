@@ -65,7 +65,6 @@ table {
 		</nav>
 		<!-- 상단 네비게이션 끝 -->
 		<div class="container">
-<<<<<<< HEAD
 				<div class="view-account">
 						<section class="module">
 								<div class="module-inner">
@@ -82,7 +81,7 @@ table {
 																<li class="active"><a href="boardNoticeList.do?board_num=0"><span class="fa"></span>공지게시판</a></li>
 																<li><a href="boardFreeList.do?board_num=1"><span class="fa"></span>자유게시판</a></li>
 																<li><a href="boardMarketList.do?board_num=2"><span class="fa"></span>마켓게시판</a></li>
-																<li><a href="#"><span class="fa"></span> 문의 내역 </a></li>
+																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span>나의 문의내역</a></li>
 														</ul>
 												</nav>
 										</div>
@@ -172,115 +171,6 @@ table {
 								</div>
 						</section>
 				</div>
-=======
-			<a class="navbar-brand d-inline-flex" href="index.jsp"><span
-				class="text-light fs-2 fw-bold ms-2"><img
-					src="${pageContext.request.contextPath}/img/gallery/logo.png"
-					style="width: 100px; height: 100px;" alt=""></span></a>
-			<button class="navbar-toggler collapsed" type="button"
-				data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div
-				class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0"
-				id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-					<c:if test="${sessionID == null }">
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="userLoginForm.do">JUMP IN(마이페이지)</a></li>
-					</c:if>
-					<c:if test="${sessionID != null }">
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
-					</c:if>
-					<li class="nav-item px-2"><a class="nav-link fw-bold"
-						href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
-					<li class="nav-item px-2"><a class="nav-link fw-bold"
-						href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
-					<c:if test="${sessionID == null }">
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="userLoginForm.do">로그인</a></li>
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="userAgree.do">회원가입</a></li>
-					</c:if>
-					<c:if test="${sessionID != null }">
-						<li class="nav-item px-2"><a class="nav-link fw-bold"
-							href="userLogoutPro.do">로그아웃</a></li>
-					</c:if>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="content">
-		<div class="container">
-			<h2 class="mb-5" style="color: black;">공지사항 게시판</h2>
-			<table>
-				<tr>
-					<td><a id="nav2" href="boardNoticeList.do?board_num=0">공지게시판</a></td>
-				</tr>
-				<tr>
-					<td><a id="nav2"
-						href="boardFreeList.do?board_num=1">자유게시판</a></td>
-				</tr>
-				<tr>
-					<td><a id="nav2"
-						href="boardMarketList.do?board_num=2">마켓게시판</a></td>
-				</tr>
-			</table>
-			<table>
-				<tr>
-					<th scope="col">번호</th>
-					<th scope="col">제목</th>
-					<th scope="col">작성자</th>
-					<th scope="col">작성일</th>
-					<th scope="col">조회수</th>
-				</tr>
-				<c:if test="${totCnt > 0 }">
-					<c:forEach var="post" items="${list}">
-						<tr>
-							<td>${startNum}</td>
-							<!--게시글 번호 대신하여 사용-->
-							<td class="left" width=200><a
-								href='postContent.do?board_num=${board_num}&post_num=${post.post_num}&pageNum=${currentPage}'>
-									${post.post_name}</a></td>
-							<td>${post.user_id}</td>
-							<td>${post.post_date}</td>
-							<td>${post.post_view}</td>
-						</tr>
-						<c:set var="startNum" value="${startNum - 1 }" />
-					</c:forEach>
-				</c:if>
-				<c:if test="${totCnt == 0 }">
-					<tr>
-						<td colspan=7>데이터가 없네</td>
-					</tr>
-				</c:if>
-			</table>
-
-<table>
-			<tr>
-					<td><a
-						href="postWriteForm.do?board_num=${board_num}&post_num=${post_num}&pageNum=${currentPage }">자유
-							글쓰기</a> <input type="text" id="board_num" value="${board_num}">
-						<input type="text" id="pageNum" value="${currentPage }"> <input
-						type="text" id="post_num" value="${post_num}"></td>
-				</tr>
-</table>
-
-			<div style="text-align: center;">
-				<c:if test="${startPage > blockSize }">
-					<a href='boardList.do?pageNum=${startPage-blockSize}'>[이전]</a>
-				</c:if>
-				<c:forEach var="i" begin="${startPage}" end="${endPage}">
-					<a href='boardList.do?pageNum=${i}'>[${i}]</a>
-				</c:forEach>
-				<c:if test="${endPage < pageCnt }">
-					<a href='boardList.do?pageNum=${startPage+blockSize}'>[다음]</a>
-				</c:if>
-			</div>
->>>>>>> 01_team
 		</div>
 		<%-- <div class="content">
 				<div class="container">
