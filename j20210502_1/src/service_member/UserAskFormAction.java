@@ -7,8 +7,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import dao.Member;
-import dao.MemberDao;
 import dao.Post;
 import dao.PostDao;
 
@@ -19,17 +17,14 @@ public class UserAskFormAction implements CommandProcess {
 			throws ServletException, IOException {
 		try {
 			request.setCharacterEncoding("utf-8");
-			MemberDao md = MemberDao.getInstance();
 			PostDao pd = PostDao.getInstance();
-			
-			System.out.println("Let's AskFormAction");
-			
+						
 			String user_id = request.getParameter("user_id");
 			int user_code = Integer.parseInt(request.getParameter("user_code"));
 			
 			int board_num = 3;
 			
-			int totCnt  = pd.getTotalCnt(board_num);
+			int totCnt  = pd.getTotalCnt2(board_num);
 			String pageNum = request.getParameter("pageNum");
 			
 			if (pageNum==null || pageNum.equals("")) {	
@@ -37,29 +32,29 @@ public class UserAskFormAction implements CommandProcess {
 				}
 			int currentPage = Integer.parseInt(pageNum);	
 			int pageSize  = 10, blockSize = 10;
-			// page = 2 -->  startRow = 11 , endRow = 20
-			// page = 3 -->  startRow = 21 , endRow = 30
-			int startRow = (currentPage - 1) * pageSize + 1;  // start -> 1
-			int endRow   = startRow + pageSize - 1;           // start -> 10
-			int startNum = totCnt - startRow + 1;             //21 - 1 = 20
-			
-			System.out.println("startRow-->" + startRow);
-			System.out.println("endRow-->" + endRow);
-			System.out.println("startNum-->" + startNum);
+			int startRow = (currentPage - 1) * pageSize + 1;
+			int endRow   = startRow + pageSize - 1;
+			int startNum = totCnt - startRow + 1;
 			
 			if(user_code == 2) {
 				List<Post> list = pd.askList(startRow, endRow, board_num, user_id);
 				request.setAttribute("list", list);
 			}
 			else {
-				List<Post> list = pd.list(startRow, endRow, board_num);
+				List<Post> list = pd.askList1(startRow, endRow, board_num);
 				request.setAttribute("list", list);
+				System.out.println(list.size());
+				
+//				for(int i = 0; i < list.size(); i++) {
+//					System.out.println("*** : " + list.);
+//				}
 			}
-			int pageCnt = (int)Math.ceil((double)totCnt/pageSize); //21/10
+			int pageCnt = (int)Math.ceil((double)totCnt/pageSize);
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 			int endPage = startPage + blockSize -1;	
 			if (endPage > pageCnt) 
 				endPage = pageCnt;
+			
 			
 			request.setAttribute("user_id", user_id);
 			request.setAttribute("board_num", board_num);
@@ -67,7 +62,6 @@ public class UserAskFormAction implements CommandProcess {
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
-//			request.setAttribute("list", list);
 			request.setAttribute("blockSize", blockSize);
 			request.setAttribute("pageCnt", pageCnt);
 			request.setAttribute("startPage", startPage);

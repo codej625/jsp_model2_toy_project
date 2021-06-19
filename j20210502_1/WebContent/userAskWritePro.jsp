@@ -12,7 +12,7 @@
 	<c:if test="${result > 0 }">
 		<script type="text/javascript">
 			alert("입력 완료");
-			location.href = "userInfo.jsp";
+			location.href = "index.do";
 		</script>
 	</c:if>
 	<c:if test="${result == 0 }">

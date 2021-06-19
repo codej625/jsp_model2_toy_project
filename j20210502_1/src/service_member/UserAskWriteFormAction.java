@@ -16,9 +16,10 @@ public class UserAskWriteFormAction implements CommandProcess {
 	public String requestPro(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		try {
-request.setCharacterEncoding("utf-8");
+			request.setCharacterEncoding("utf-8");
 			
 			String user_id = request.getParameter("user_id");
+			System.out.println("UserAskWriteFormAction->"+user_id);
 			int post_num = 0, post_re = 0, post_restep = 0, post_lv = 0;
 			int board_num = 3;
 			String pageNum = request.getParameter("pageNum");
@@ -29,18 +30,13 @@ request.setCharacterEncoding("utf-8");
     			PostDao pd = PostDao.getInstance();
     			Post post = pd.select(board_num, post_num);
     			post_re = post.getPost_re();
-    			System.out.println("WriteFormAction post_re-->" + post_re);
     			post_restep = post.getPost_restep();
     			post_lv = post.getPost_lv();
     		}
     		request.setAttribute("user_id", user_id);
-    		System.out.println("WriteFormAction user_id-->" + user_id);
     		request.setAttribute("board_num", board_num);
-    		System.out.println("WriteFormAction board-->" + board_num);
     		request.setAttribute("post_num", post_num);
-    		System.out.println("WriteFormAction post_num-->" + post_num);
 			request.setAttribute("post_re", post_re);
-			System.out.println("WriteFormAction post_re-->" + post_re);
 			request.setAttribute("post_lv", post_lv);
 			request.setAttribute("post_restep", post_restep);
 			request.setAttribute("pageNum", pageNum);
