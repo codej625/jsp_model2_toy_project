@@ -17,12 +17,14 @@ public class PostDeleteFormAction implements CommandProcess {
 		try {
 			int board_num = Integer.parseInt(request.getParameter("board_num"));
 			int post_num = Integer.parseInt(request.getParameter("post_num"));
+			String pageNum = request.getParameter("pageNum");
 			
 			System.out.println("DeleteFormAction board_num" + board_num);
 			System.out.println("DeleteeFormAction post_num" + post_num);
 			
 			request.setAttribute("board_num",board_num);
 			request.setAttribute("post_num", post_num);
+			request.setAttribute("pageNum", pageNum);
 		} 
 		catch (Exception e) {
 			System.out.println(e.getMessage());

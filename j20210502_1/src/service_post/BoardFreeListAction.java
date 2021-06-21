@@ -42,7 +42,7 @@ PostDao pd = PostDao.getInstance();
 			System.out.println("startNum-->" + startNum);
 			
 			List<Post> list = pd.list(startRow, endRow, board_num);	
-			int post_num = pd.getPostNum(board_num);
+	
 			int pageCnt = (int)Math.ceil((double)totCnt/pageSize); //21/10
 			int startPage = (int)(currentPage-1)/blockSize*blockSize + 1;
 			int endPage = startPage + blockSize -1;	
@@ -51,7 +51,6 @@ PostDao pd = PostDao.getInstance();
 			
 			request.setAttribute("board_num", board_num);
 			request.setAttribute("totCnt", totCnt);
-			request.setAttribute("post_num", post_num);
 			request.setAttribute("pageNum", pageNum);
 			request.setAttribute("currentPage", currentPage);
 			request.setAttribute("startNum", startNum);
@@ -63,7 +62,6 @@ PostDao pd = PostDao.getInstance();
 			 
 			System.out.println("-----------------------------------------------");  // /ch16/list.do
 			System.out.println("Board Num -->" + board_num);
-			System.out.println("post_num-->" + post_num);
 			System.out.println("pageNum-->" + pageNum);
 			System.out.println("startNum-->" + startNum);  // /ch16/list.do
 			System.out.println("totCnt-->" + totCnt);  // /ch16/list.do

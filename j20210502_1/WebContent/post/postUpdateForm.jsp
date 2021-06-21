@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,8 +23,14 @@
 			</tr>
 			<tr>
 				<td>제목</td>
-				<td><input type="text" name="post_name" required="required"
-					value="${post.post_name}"></td>
+				<td>
+					<c:if test="${post.post_re > 0 }">	
+						<input type="text" name="post_name" required="required" value="[댓글수정]">
+					</c:if>
+					<c:if test="${post.post_re == 0 }">
+						<input type="text" name="post_name" required="required" value="${post.post_name}">
+					</c:if>
+				</td>
 			</tr>
 			<tr>
 				<td>작성자</td>

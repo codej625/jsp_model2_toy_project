@@ -18,8 +18,6 @@ public class PostUpdateProAction implements CommandProcess {
 		try { 
 			request.setCharacterEncoding("utf-8"); 
 	        String pageNum = request.getParameter("pageNum");
-	        String user_id = request.getParameter("user_id");
-	        
 	        
 	        Post post = new Post();
 	        post.setBoard_num(Integer.parseInt(request.getParameter("board_num")));
@@ -33,7 +31,7 @@ public class PostUpdateProAction implements CommandProcess {
 
 			int result = pd.update(post);
 		
-		
+			request.setAttribute("board_num", post.getBoard_num());
 			request.setAttribute("result", result);
 			request.setAttribute("post_num", post.getPost_num());
 			request.setAttribute("pageNum", pageNum);

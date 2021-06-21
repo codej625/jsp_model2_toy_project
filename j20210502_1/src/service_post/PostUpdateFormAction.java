@@ -19,6 +19,7 @@ public class PostUpdateFormAction implements CommandProcess {
 			int board_num = Integer.parseInt(request.getParameter("board_num"));
 			int post_num = Integer.parseInt(request.getParameter("post_num"));
 			String pageNum = request.getParameter("pageNum");
+			
 			PostDao pd = PostDao.getInstance();
 			Post post = pd.select(board_num,post_num);
 			
