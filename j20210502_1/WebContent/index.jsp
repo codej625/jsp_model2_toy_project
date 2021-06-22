@@ -49,7 +49,7 @@
 }
 
 .map_wrap a, .map_wrap a:hover, .map_wrap a:active {
-  color: #000;
+  color: black;
   text-decoration: none;
 }
 
@@ -127,7 +127,7 @@
 }
 
 #placesList .info .gray {
-  color: #8a8a8a;
+  color: white;
 }
 
 #placesList .info .jibun {
@@ -221,7 +221,7 @@
 #pagination .on {
   font-weight: bold;
   cursor: default;
-  color: #777;
+  color: white;
 }
 </style>
 <title>CAMPRO</title>

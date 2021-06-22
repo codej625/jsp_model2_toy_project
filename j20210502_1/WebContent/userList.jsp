@@ -106,14 +106,30 @@ table {
 										</fieldset>
 								</form>
 								<table border="0">
+										<colgroup>
+												<col width="12.5%">
+												<%-- ID --%>
+												<col width="8%">
+												<%-- 회원종류 --%>
+												<col width="12.5%">
+												<%-- 비밀번호 --%>
+												<col width="12.5%">
+												<%-- 이름 --%>
+												<col width="17%">
+												<%-- 전화번호 --%>
+												<col width="16%">
+												<%-- 가입일 --%>
+												<col width="16%">
+												<%-- 수정일 --%>
+												<col width="8%">
+												<%-- 탈퇴여부 --%>
+										</colgroup>
 										<tr>
 												<th>사용자ID</th>
 												<th>회원종류</th>
 												<th>비밀번호</th>
 												<th>이름</th>
 												<th>전화번호</th>
-												<th>주소</th>
-												<th>이메일</th>
 												<th>가입일</th>
 												<th>회원정보 수정일</th>
 												<th>탈퇴여부</th>
@@ -126,14 +142,18 @@ table {
 																<td>${member.user_pw }</td>
 																<td>${member.user_name }</td>
 																<td>${member.user_tel }</td>
-																<td>${member.user_addr }</td>
-																<td>${member.user_email }</td>
 																<td>${member.user_reg }</td>
 																<td>${member.user_pwd }</td>
-																<td>${member.user_drop }
+																<td><c:choose>
+																				<c:when test="${member.user_drop == 0 }">사용중</c:when>
+																		</c:choose> <c:choose>
+																				<c:when test="${member.user_drop == 1 }">사용정지</c:when>
+																		</c:choose>
 																		<div class="form-group">
 																				<div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-																						<input class="btn btn-primary" type="button" value="변경" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'">
+																						<c:if test="${member.user_drop == 1 }">
+																								<input class="btn btn-primary" type="button" value="변경" onclick="location.href='userDeleteUpdate.do?user_id=${member.user_id }'" style="width: 40px; height: 25px; font-size: 8px; padding: 0 2px 2px 0;">
+																						</c:if>
 																				</div>
 																		</div>
 														</tr>
