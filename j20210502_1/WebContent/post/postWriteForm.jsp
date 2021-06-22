@@ -69,19 +69,15 @@ td a:hover:not(.current) {
 	src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
 <script
 	src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
-<!-- include summernote css/js-->
 <link
 	href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.css"
 	rel="stylesheet">
 <script
 	src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.8/summernote.js"></script>
 <script>
-	$(document)
-			.ready(
-					function() {
+	$(document).ready(function() {
 						//여기 아래 부분
-						$('#summernote')
-								.summernote(
+			$('#summernote').summernote(
 										{
 											height : 500,// 에디터 높이
 											width : 700,
@@ -132,10 +128,37 @@ td a:hover:not(.current) {
 													'20', '22', '24', '28',
 													'30', '36', '50', '72' ]
 										})
-					});
+					});	
+
+/* 첨부파일 첨부
+	function previewImage(f){
+
+        var file = f.files;
+
+          // 확장자 체크
+      	if(!/\.(gif|jpg|jpeg|png)$/i.test(file[0].name)){
+         alert('gif, jpg, png 파일만 선택해 주세요.\n\n현재 파일 : ' + file[0].name);
+         
+         // 선택한 파일 초기화
+         f.outerHTML = f.outerHTML;
+
+         document.getElementById('preview').innerHTML = '';
+
+      }
+      else {
+         // FileReader 객체 사용
+         var reader = new FileReader();
+
+         // 파일 읽기가 완료되었을때 실행
+         reader.onload = function(rst){
+            document.getElementById('preview').innerHTML = '<img src="' + rst.target.result + '">';
+         }
+         // 파일을 읽는다
+         reader.readAsDataURL(file[0]);
+      }
+   } */
+	
 </script>
-
-
 <script type="text/javascript">
 	var checkUnload = true;
 	$(window).on('beforeunload', function() {
@@ -148,12 +171,8 @@ td a:hover:not(.current) {
 	});
 </script>
 
-
-
-
 </head>
 <body>
-
 	<header>
 		<table>
 			<tr>
@@ -171,29 +190,23 @@ td a:hover:not(.current) {
 			</tr>
 		</table>
 	</header>
-	<form
-		action="postWritePro.do?board_num=${board_num}&pageNum=${pageNum}&post_num=${post_num + 1}"
-		method="post">
-		<input type="text" name="board_num" id="board_num"
-			value="${board_num}"> <input type="text" name="pageNum"
-			id="pagenNum" value="${pageNum }"> <input type="text"
-			name="post_num" id="post_num" value="${post_num +1}">
-
-
-	
+	<form action="postWritePro.do?board_num=${board_num}&pageNum=${pageNum}" method="post" enctype="multipart/form-data">
+		<input type="hidden" name="board_num" id="board_num" value="${board_num}">
+		<input type="hidden" name="pageNum" id="pagenNum" value="${pageNum }"> 
+		<input type="hidden" name="post_num" value="${post_num }">
+		<input type="hidden" name="post_re" value="${post_re}">
+     	<input type="hidden" name="post_restep" value="${post_restep}">
+     	<input type="hidden" name="post_lv" value="${post_lv}">
 			<h2>게시판 글쓰기</h2>
-
-
-			작성자<input type="text" name="user_id" required="required"> 
-			제목<input type="text" name="post_name" required="required">
-			<textarea id="summernote" name="content" required="required">
-		</textarea>
-
+				작성자
+				<input type="text" name="user_id" required="required"> 
+				제목
+				<input type="text" name="post_name" required="required">
+			 <textarea id="summernote" name="post_cont" required="required"></textarea> 
 <fieldset>
 		<input type="button" onclick="history.back();" value="취소">
 		<input type="submit" value="확인">
 </fieldset>
-
 	</form>
 </body>
 </html>
