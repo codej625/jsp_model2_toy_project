@@ -17,23 +17,11 @@
 			value="돌아가기" onclick="location.href='boardList.do'">
 	</form>
 	======= --%>
-<<<<<<< HEAD
 		<form action="postDeletePro.do?board_num=${board_num }&post_num=${post_num}" method="post">
-				<input type="text" id="board_num" value="${board_num }"> <input type="text" id="post_num" value="${post_num}"> <input type="submit" value="네">
+				<input type="hidden" id="board_num" value="${board_num }"> <input type="hidden" id="post_num" value="${post_num}"> 삭제 <input type="submit" value="확인">
 				<p>
-						 <input type="button" value="아니요" onclick="location.href='boardList.do'">
+						취소 <input type="button" value="돌아가기" onclick="location.href='boardList.do'">
 				</p>
 		</form>
-=======
-	<form action="postDeletePro.do?board_num=${board_num }&post_num=${post_num}" method="post">
-	<input type="hidden" id="board_num" value="${board_num }"> 
-	<input type="hidden" id="post_num" value="${post_num}"> 삭제 
-	<input type="submit" value="확인">
-		<p>
-			취소 <input type="button" value="돌아가기"
-				onclick="location.href='boardList.do'">
-		</p>
-	</form>
->>>>>>> 02_team
 </body>
 </html>
