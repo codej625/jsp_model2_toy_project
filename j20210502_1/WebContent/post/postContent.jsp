@@ -195,8 +195,8 @@ table {
 																<tr>
 																		<h3>댓글</h3>
 																	</tr>
-																	
 														</table>
+														</fieldset>
 														<br> <br> 
 														<table border="0">
 																<c:if test="${totCnt > 0}">
