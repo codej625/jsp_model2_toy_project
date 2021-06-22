@@ -50,7 +50,7 @@ table {
 										<c:if test="${sessionID != null }">
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
 										</c:if>
-										<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
+										<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerCf.do">EXPLORER(캠핑장)</a></li>
 										<li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
 										<c:if test="${sessionID == null }">
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
@@ -94,19 +94,25 @@ table {
 																		</figure>
 																</div>
 																<table>
+																	<colgroup>
+	                                  <col width="10%">
+	                                  <col width="50%">
+	                                  <col width="10%">
+	                                  <col width="15%">
+	                                  <col width="*">
+	                                </colgroup>
+	                                <tbody>
 																		<tr>
-																				<th scope="col">게시번호</th>
-																				<th scope="col">번호</th>
-																				<th scope="col">제목</th>
-																				<th scope="col">작성자</th>
-																				<th scope="col">작성일</th>
-																				<th scope="col">조회수</th>
+																				<th>번호</th> 
+																				<th>제목</th>
+																				<th>작성자</th>
+																				<th>작성일</th>
+																				<th>조회수</th>
 																		</tr>
 																		<c:if test="${totCnt > 0 }">
-																				<c:forEach var="post" items="${list}">
+																				<c:forEach var="post" items="${list}" varStatus="postNum">
 																						<tr>
-																								<td>${board_num }</td>
-																								<td>${post.post_num}</td>
+  																								<td>${postNum.count}</td> <!-- JSTL count 로 게시글 번호 정렬 -->
 																								<!--게시글 번호 대신하여 사용-->
 																								<td class="left" width=200><a href='postContent.do?board_num=${board_num}&post_num=${post.post_num}&pageNum=${currentPage}'> ${post.post_name}</a></td>
 																								<td>${post.user_id}</td>
@@ -121,6 +127,7 @@ table {
 																						<td colspan=7>데이터가 없네</td>
 																				</tr>
 																		</c:if>
+																		</tbody>
 																</table>
 														</fieldset>
 														<hr>

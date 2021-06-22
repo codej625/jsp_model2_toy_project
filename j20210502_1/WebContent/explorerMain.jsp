@@ -29,12 +29,42 @@
 </script>
 </head>
 <body>
+<!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 d-block" data-navbar-on-scroll="data-navbar-on-scroll">
+        <div class="container">
+            <a class="navbar-brand d-inline-flex" href="index.jsp"><span class="text-light fs-2 fw-bold ms-2"><img src="${pageContext.request.contextPath}/img/gallery/logo.png" style="width: 100px; height: 100px;" alt=""></span></a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <c:if test="${sessionID == null }">
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">JUMP IN(마이페이지)</a></li>
+                    </c:if>
+                    <c:if test="${sessionID != null }">
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
+                    </c:if>
+                    <li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerCF.do">EXPLORER(캠핑장)</a></li>
+                    <li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
+                    <c:if test="${sessionID == null }">
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" href="userAgree.do">회원가입</a></li>
+                    </c:if>
+                    <c:if test="${sessionID != null }">
+                        <li class="nav-item px-2"><a class="nav-link fw-bold" href="userLogoutPro.do">로그아웃</a></li>
+                    </c:if>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- 상단 네비게이션 끝 -->
 	<div id="wrapper">
 		<div id="header">
 			<div id="cF">
 				<form action="explorerCf.do" method="post">
 					<select name="c_F" id="c_F" onchange="formChange(this.form)">
-						<option>유/무료 선택</option>
 						<option value='0'>유료</option>
 						<option value='1'>무료</option>
 					</select>

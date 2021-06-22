@@ -20,7 +20,7 @@
 }
 
 body {
-	background-color: #495057;
+	background-color: #121212;
 }
 
 ul>li {
@@ -44,7 +44,7 @@ a {
 
 ul.join_box {
 	border: none;
-	background-color: #495057;
+	background-color: #121212;
 }
 
 .checkBox, .checkBox>ul {

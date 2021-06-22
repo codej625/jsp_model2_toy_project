@@ -51,7 +51,7 @@ table {
 												<c:if test="${sessionID != null }">
 														<li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
 												</c:if>
-												<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
+												<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerCf.do">EXPLORER(캠핑장)</a></li>
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
 												<c:if test="${sessionID == null }">
 														<li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
@@ -81,7 +81,7 @@ table {
 												<nav class="side-menu">
 														<ul class="nav">
 																<li><a href="userInfo.do?user_id=${sessionID }"><span class="fa fa-user"></span> 사용자 정보</a></li>
-																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span>나의 문의내역</a></li>
+																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span> 나의 문의내역</a></li>
 																<li><a href="userWriteList.do?user_id=${sessionID}"><span class="fa fa-envelope"></span> 내가 쓴글 </a></li>
 																<c:if test="${sessionCODE != 2}">
 																		<li class="active"><a href="userList.do?user_id=${sessionID}"><span class="fa fa-cog"></span> 모든사용자 정보</a></li>

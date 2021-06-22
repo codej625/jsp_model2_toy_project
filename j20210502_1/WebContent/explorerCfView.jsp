@@ -36,6 +36,8 @@ body {
 #board_num, #pageNum, #post_num {
   display: none;
 }
+
+
 </style>
 <script type="text/javascript">
   function formChange(obj) {
@@ -68,7 +70,7 @@ body {
 										<c:if test="${sessionID != null }">
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
 										</c:if>
-										<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
+										<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerCf.do">EXPLORER(캠핑장)</a></li>
 										<li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
 										<c:if test="${sessionID == null }">
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
@@ -117,14 +119,16 @@ body {
 																				</h2>
 																				<hr>
 																				<div id="camp_Addr">
+																			<br>
+																			<br>
+																			<br>
+																			<br>
+																			
 																						<p>
 																								<strong>캠핑장 주소</strong> : ${camp_InfoDto.camp_Addr}
 																						</p>
 																						<p>
 																								<strong>캠핑장 전화</strong> : ${camp_InfoDto.camp_Tel}
-																						</p>
-																						<p>
-																								<strong>캠핑장 설명</strong> : ${camp_InfoDto.camp_Desc}
 																						</p>
 																				</div>
 																				<p>

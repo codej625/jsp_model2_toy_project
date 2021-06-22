@@ -22,6 +22,14 @@ body {
   background: #f9f9fb;
 }
 </style>
+<script>
+        function popup(){
+            var url = "userDeleteForm.jsp";
+            var name = "회원탈퇴";
+            var option = "width = 500, height = 180, top = 100, left = 200, location = no, scrollbars = no, toolbars = no, status = no, resizable = no, fullscreen = no"
+            window.open(url, name, option);
+        }
+    </script>
 </head>
 <body>
 		<!-- ===============================================-->
@@ -42,7 +50,7 @@ body {
 												<c:if test="${sessionID != null }">
 														<li class="nav-item px-2"><a class="nav-link fw-bold" href="userInfo.do?user_code=${sessionCODE }">JUMP IN(마이페이지)</a></li>
 												</c:if>
-												<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorer.do?user_id=${sessionID }">EXPLORER(캠핑장)</a></li>
+												<li class="nav-item px-2"><a class="nav-link fw-bold" href="explorerCf.do">EXPLORER(캠핑장)</a></li>
 												<li class="nav-item px-2"><a class="nav-link fw-bold" href="boardList.do?user_id=${sessionID }">TIKI-TAKA(게시판)</a></li>
 												<c:if test="${sessionID == null }">
 														<li class="nav-item px-2"><a class="nav-link fw-bold" href="userLoginForm.do">로그인</a></li>
@@ -56,7 +64,6 @@ body {
 						</div>
 				</nav>
 		</header>
-		
 		<div class="container">
 				<div class="view-account">
 						<section class="module">
@@ -74,7 +81,7 @@ body {
 																<li class="active"><a href="userInfo.do?user_id=${sessionID }"><span class="fa fa-user"></span> 사용자 정보</a></li>
 																<!-- 								<li><a href="userUpdateForm.jsp"><span -->
 																<!-- 										class="fa fa-cog"></span> 사용자 정보수정</a></li> -->
-																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span>나의 문의내역</a></li>
+																<li><a href="userAskForm.do?user_id=${sessionID}&user_code=${sessionCODE}&board_num=3"><span class="fa fa-envelope"></span> 나의 문의내역</a></li>
 																<li><a href="userWriteList.do?user_id=${sessionID}"><span class="fa fa-envelope"></span> 내가 쓴글 </a></li>
 																<c:if test="${sessionCODE != 2}">
 																		<li><a href="userList.do?user_id=${sessionID}"><span class="fa fa-cog"></span> 모든사용자 정보</a></li>
@@ -127,8 +134,7 @@ body {
 								<hr>
 								<div class="form-group">
 										<div class="col-md-10 col-sm-9 col-xs-12 col-md-push-2 col-sm-push-3 col-xs-push-0">
-												<input class="btn btn-primary" type="button" value="회원정보 수정" onclick="location.href='userUpdateForm.do?user_id=${sessionID}'"> 
-												<input class="btn btn-primary" type="button" value="회원탈퇴" onclick="location.href='userDeleteForm.do?user_id=${sessionID}'">
+												<input class="btn btn-primary" type="button" value="회원정보 수정" onclick="location.href='userUpdateForm.do?user_id=${sessionID}'"> <input class="btn btn-primary" type="button" value="회원탈퇴" onclick="javascript:popup()">
 										</div>
 								</div>
 						</div>

@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,24 +18,26 @@
 }
 
 body {
-  padding-top: 100px;
-  background: #f9f9fb;
+  display: none; /*숨기기*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
 }
 </style>
 </head>
 <body>
-	<%-- 회원정보 삭제 결과 --%>
-	<c:if test="${result == 1 }">
-		<script type="text/javascript">
-			alert("회원탈퇴 완료");
-			location.href = "index.jsp";
-		</script>
-	</c:if>
-	<c:if test="${result != 1 }">
-		<script type="text/javascript">
-			alert("비밀번호를 잘못 입력하였습니다.");
-			history.back();
-		</script>
-	</c:if>
+		<%-- 회원정보 삭제 결과 --%>
+		<c:if test="${result == 1 }">
+				<script type="text/javascript">
+          alert("회원탈퇴 완료");
+        </script>
+		</c:if>
+		<c:if test="${result != 1 }">
+				<script type="text/javascript">
+          alert("비밀번호를 잘못 입력하였습니다.");
+          history.back();
+        </script>
+		</c:if>
 </body>
 </html>
